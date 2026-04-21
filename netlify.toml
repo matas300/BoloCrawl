@@ -1,0 +1,84 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["firebase-admin"]
+
+# --- URL rewrites to Netlify Functions ---
+
+[[redirects]]
+  from = "/api/book"
+  to = "/.netlify/functions/book"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/export.csv"
+  to = "/.netlify/functions/export"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/admin"
+  status = 200
+  force = true
+
+# Root → miglior corrispondenza con Accept-Language del browser.
+# L'ordine conta: Netlify applica la prima regola che matcha.
+[[redirects]]
+  from = "/"
+  to = "/it/"
+  status = 302
+  conditions = {Language = ["it"]}
+
+[[redirects]]
+  from = "/"
+  to = "/es/"
+  status = 302
+  conditions = {Language = ["es"]}
+
+[[redirects]]
+  from = "/"
+  to = "/de/"
+  status = 302
+  conditions = {Language = ["de"]}
+
+[[redirects]]
+  from = "/"
+  to = "/fr/"
+  status = 302
+  conditions = {Language = ["fr"]}
+
+# Fallback: EN per tutti gli altri
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 302
+
+# --- Security headers for static pages ---
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache assets a lungo (hash su nome file se li versioni)
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

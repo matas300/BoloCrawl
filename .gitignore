@@ -1,0 +1,11 @@
+node_modules/
+dist/
+bookings.json
+.env
+.env.*
+!.env.example
+.netlify/
+.DS_Store
+.claude/
+*.log
+npm-debug.log*
