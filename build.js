@@ -39,33 +39,12 @@ for (const lang of SUPPORTED_LANGS) {
   }
 }
 
-// Root fallback: redirect netlify.toml gestisce lato server.
-// Questo HTML scatta solo se qualcuno arriva qui con il redirect server non applicato
-// (es. preview link diretto, cache CDN stagnante, link esterno hardcoded).
-fs.writeFileSync(
-  path.join(DIST, 'index.html'),
-`<!DOCTYPE html>
-<html lang="${DEFAULT_LANG}">
-<head>
-<meta charset="UTF-8">
-<title>Bolo Crawl — Pub Crawl Bologna</title>
-<link rel="canonical" href="${BASE_URL}/${DEFAULT_LANG}/">
-<meta http-equiv="refresh" content="0; url=/${DEFAULT_LANG}/">
-<script>
-(function(){
-  var supported = ['it','en','es','de','fr'];
-  var nav = (navigator.language || navigator.userLanguage || '${DEFAULT_LANG}').slice(0,2).toLowerCase();
-  var lang = supported.indexOf(nav) !== -1 ? nav : '${DEFAULT_LANG}';
-  window.location.replace('/' + lang + '/');
-})();
-</script>
-</head>
-<body></body>
-</html>
-`);
+// Root redirect gestito interamente da netlify.toml (301 → /en/).
+// NON generare dist/index.html: se presente, Netlify serve l'HTML invece di
+// applicare la regola redirect, causando problemi di indicizzazione su Google.
 
 fs.writeFileSync(path.join(DIST, 'robots.txt'),
-`User-agent: *
+  `User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/
@@ -95,7 +74,7 @@ const articleUrls = SUPPORTED_LANGS.flatMap(lang =>
 ).join('\n');
 
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'),
-`<?xml version="1.0" encoding="UTF-8"?>
+  `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${homeUrls}
