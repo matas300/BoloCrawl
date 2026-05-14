@@ -30,37 +30,13 @@
   status = 200
   force = true
 
-# Root → miglior corrispondenza con Accept-Language del browser.
-# L'ordine conta: Netlify applica la prima regola che matcha.
-[[redirects]]
-  from = "/"
-  to = "/it/"
-  status = 302
-  conditions = {Language = ["it"]}
-
-[[redirects]]
-  from = "/"
-  to = "/es/"
-  status = 302
-  conditions = {Language = ["es"]}
-
-[[redirects]]
-  from = "/"
-  to = "/de/"
-  status = 302
-  conditions = {Language = ["de"]}
-
-[[redirects]]
-  from = "/"
-  to = "/fr/"
-  status = 302
-  conditions = {Language = ["fr"]}
-
-# Fallback: EN per tutti gli altri
+# Root redirect for SEO stability.
+# A fixed HTTP redirect is easier for Google to process than
+# language-based redirects that vary by Accept-Language.
 [[redirects]]
   from = "/"
   to = "/en/"
-  status = 302
+  status = 301
 
 # --- Security headers for static pages ---
 
