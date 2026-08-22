@@ -438,6 +438,12 @@ body {
 }
 .form-msg.error { color: #f87171; }
 
+.privacy-updated {
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
 /* ---------- WhatsApp ---------- */
 
 .wa-fab {

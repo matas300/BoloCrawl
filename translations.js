@@ -95,6 +95,7 @@ const translations = {
       rights: 'Tutti i diritti riservati.',
       tagline: 'Bolo Crawl — la notte è giovane.',
       articles: 'Approfondimenti',
+      privacy: 'Privacy policy',
       backHome: '← Torna alla home'
     }
   },
@@ -191,6 +192,7 @@ const translations = {
       rights: 'All rights reserved.',
       tagline: 'Bolo Crawl — the night is young.',
       articles: 'Guides',
+      privacy: 'Privacy policy',
       backHome: '← Back to home'
     }
   },
@@ -285,7 +287,9 @@ const translations = {
     },
     footer: {
       rights: 'Todos los derechos reservados.',
-      tagline: 'Bolo Crawl — la noche es joven.'
+      tagline: 'Bolo Crawl — la noche es joven.',
+      privacy: 'Privacidad',
+      backHome: '← Volver al inicio'
     }
   },
 
@@ -379,7 +383,9 @@ const translations = {
     },
     footer: {
       rights: 'Alle Rechte vorbehalten.',
-      tagline: 'Bolo Crawl — die Nacht ist jung.'
+      tagline: 'Bolo Crawl — die Nacht ist jung.',
+      privacy: 'Datenschutz',
+      backHome: '← Zurück zur Startseite'
     }
   },
 
@@ -473,7 +479,9 @@ const translations = {
     },
     footer: {
       rights: 'Tous droits réservés.',
-      tagline: 'Bolo Crawl — la nuit est jeune.'
+      tagline: 'Bolo Crawl — la nuit est jeune.',
+      privacy: 'Confidentialité',
+      backHome: "← Retour à l'accueil"
     }
   }
 };

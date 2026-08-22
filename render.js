@@ -4,6 +4,7 @@
 const { SUPPORTED_LANGS } = require('./translations');
 const whySection = require('./content/whySection');
 const articlesByLang = require('./content/articles');
+const privacyByLang = require('./content/privacy');
 
 const BASE_URL = process.env.BASE_URL || 'https://pubcrawlbologna.it';
 
@@ -240,6 +241,7 @@ function renderFooter(t) {
             ${links}
             <p>${escapeHtml(t.footer.tagline)}</p>
             <p class="small">© ${new Date().getFullYear()} Bolo Crawl. ${escapeHtml(t.footer.rights)}</p>
+            <p class="small"><a href="/${t.lang}/privacy/">${escapeHtml(t.footer.privacy)}</a></p>
         </div>
     </footer>
     ${renderWhatsAppFab(t)}`;
@@ -373,7 +375,7 @@ function renderPage(t) {
                     <button type="submit" class="btn btn-primary btn-lg" data-label="${escapeHtml(t.book.submit)}" data-sending="${escapeHtml(t.book.sending)}">${escapeHtml(t.book.submit)}</button>
                     <p class="pay-note">💸 ${escapeHtml(t.book.payNote)}</p>
                     <p class="form-msg" data-error="${escapeHtml(t.book.error)}"></p>
-                    <p class="form-privacy">${escapeHtml(t.book.privacy)}</p>
+                    <p class="form-privacy">${escapeHtml(t.book.privacy)} <a href="/${t.lang}/privacy/">${escapeHtml(t.footer.privacy)}</a></p>
                 </form>
 
                 <p class="wa-inline">${escapeHtml(t.whatsapp.ask)}
@@ -458,4 +460,60 @@ function renderArticle(t, article) {
 </html>`;
 }
 
-module.exports = { renderPage, renderArticle, BASE_URL, articlesByLang };
+function renderPrivacy(t) {
+  const page = privacyByLang[t.lang] || privacyByLang.en;
+  const canonical = `${BASE_URL}/${t.lang}/privacy/`;
+  const home = `${BASE_URL}/${t.lang}/`;
+  const ldObjects = [
+    breadcrumbLd([
+      { name: 'Home', url: home },
+      { name: page.h1, url: canonical }
+    ])
+  ];
+
+  return `<!DOCTYPE html>
+<html lang="${t.lang}">
+<head>${renderHead({
+    t,
+    title: page.title,
+    description: page.description,
+    keywords: '',
+    canonical,
+    ogTitle: page.title,
+    ogDescription: page.description,
+    ldObjects,
+    slug: 'privacy'
+  })}
+</head>
+<body>
+    ${renderHeader(t, 'privacy')}
+
+    <main>
+        <article class="article">
+            <div class="container container-narrow">
+                <nav class="breadcrumb">
+                    <a href="/${t.lang}/">${escapeHtml(t.footer.backHome.replace(/^← /, ''))}</a>
+                    <span>/</span>
+                    <span>${escapeHtml(page.h1)}</span>
+                </nav>
+                <h1>${escapeHtml(page.h1)}</h1>
+                <p class="article-intro">${escapeHtml(page.intro)}</p>
+                <p class="privacy-updated">${escapeHtml(page.updated)}</p>
+                ${page.sections.map(s => `
+                <section class="article-section">
+                    <h2>${escapeHtml(s.h2)}</h2>
+                    <p>${escapeHtml(s.p)}</p>
+                </section>`).join('')}
+                <div class="article-cta">
+                    <p><a href="/${t.lang}/" class="back-home">${escapeHtml(t.footer.backHome)}</a></p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    ${renderFooter(t)}
+</body>
+</html>`;
+}
+
+module.exports = { renderPage, renderArticle, renderPrivacy, BASE_URL, articlesByLang };

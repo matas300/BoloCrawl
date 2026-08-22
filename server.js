@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { translations, SUPPORTED_LANGS, DEFAULT_LANG } = require('./translations');
-const { renderPage, renderArticle, BASE_URL, articlesByLang } = require('./render');
+const { renderPage, renderArticle, renderPrivacy, BASE_URL, articlesByLang } = require('./render');
 const { renderAdmin, toCsv } = require('./lib/adminHtml');
 const { sendBookingEmails } = require('./netlify/functions/_email');
 
@@ -37,6 +37,12 @@ for (const lang of SUPPORTED_LANGS) {
     res.send(renderPage(translations[lang]));
   });
   app.get(`/${lang}`, (req, res) => res.redirect(301, `/${lang}/`));
+
+  app.get(`/${lang}/privacy/`, (req, res) => {
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.send(renderPrivacy(translations[lang]));
+  });
+  app.get(`/${lang}/privacy`, (req, res) => res.redirect(301, `/${lang}/privacy/`));
 
   for (const article of (articlesByLang[lang] || [])) {
     app.get(`/${lang}/${article.slug}/`, (req, res) => {
@@ -175,6 +181,16 @@ app.get('/admin', basicAuth, (req, res) => {
   const bookings = readBookings().slice().reverse();
   res.set('Content-Type', 'text/html; charset=utf-8');
   res.send(renderAdmin(bookings));
+});
+
+app.post('/admin', basicAuth, express.urlencoded({ extended: false }), (req, res) => {
+  const id = String((req.body || {}).deleteId || '');
+  if (id) {
+    const bookings = readBookings().filter(b => b.id !== id);
+    writeBookings(bookings);
+    console.log('booking deleted', id);
+  }
+  res.redirect(303, '/admin');
 });
 
 app.get('/api/export.csv', basicAuth, (req, res) => {

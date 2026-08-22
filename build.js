@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const { translations, SUPPORTED_LANGS, DEFAULT_LANG } = require('./translations');
-const { renderPage, renderArticle, BASE_URL, articlesByLang } = require('./render');
+const { renderPage, renderArticle, renderPrivacy, BASE_URL, articlesByLang } = require('./render');
 
 const DIST = path.join(__dirname, 'dist');
 
@@ -37,6 +37,11 @@ for (const lang of SUPPORTED_LANGS) {
     fs.writeFileSync(path.join(articleDir, 'index.html'), renderArticle(translations[lang], article));
     console.log(`  → dist/${lang}/${article.slug}/index.html`);
   }
+
+  const privacyDir = path.join(dir, 'privacy');
+  mkdirp(privacyDir);
+  fs.writeFileSync(path.join(privacyDir, 'index.html'), renderPrivacy(translations[lang]));
+  console.log(`  → dist/${lang}/privacy/index.html`);
 }
 
 // Root redirect gestito interamente da netlify.toml (301 → /en/).
@@ -73,12 +78,19 @@ const articleUrls = SUPPORTED_LANGS.flatMap(lang =>
   </url>`)
 ).join('\n');
 
+const privacyUrls = SUPPORTED_LANGS.map(lang => `  <url>
+    <loc>${BASE_URL}/${lang}/privacy/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>`).join('\n');
+
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${homeUrls}
 ${articleUrls}
+${privacyUrls}
 </urlset>
 `);
 
