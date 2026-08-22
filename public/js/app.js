@@ -11,6 +11,9 @@
 
     const ALLOWED_DAYS = new Set([4, 5, 6]); // Thu, Fri, Sat
     const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+    // Le prenotazioni aprono a settembre 2026: nessuna data prima di questa.
+    // Se cambia, va allineata anche in netlify/functions/book.js e server.js.
+    const BOOKING_OPENS = new Date(2026, 8, 1);
     const lang = document.documentElement.lang || 'en';
 
     function toYmd(d) {
@@ -19,9 +22,16 @@
         const day = String(d.getDate()).padStart(2, '0');
         return `${y}-${m}-${day}`;
     }
+    // Prima data selezionabile: oggi, ma mai prima dell'apertura delle prenotazioni.
+    function firstSelectable() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return today < BOOKING_OPENS ? new Date(BOOKING_OPENS) : today;
+    }
     function nextAllowed(from) {
         const d = new Date(from);
         d.setHours(0, 0, 0, 0);
+        if (d < BOOKING_OPENS) d.setTime(BOOKING_OPENS.getTime());
         for (let i = 0; i < 7; i++) {
             if (ALLOWED_DAYS.has(d.getDay())) return d;
             d.setDate(d.getDate() + 1);
@@ -55,7 +65,7 @@
         dateInput.value = toYmd(initial);
         picker = new window.Pikaday({
             field: dateInput,
-            minDate: new Date(),
+            minDate: firstSelectable(),
             defaultDate: initial,
             setDefaultDate: true,
             firstDay: 1,
@@ -65,7 +75,7 @@
             disableDayFn(d) { return !ALLOWED_DAYS.has(d.getDay()); }
         });
     } else if (dateInput) {
-        dateInput.min = toYmd(new Date());
+        dateInput.min = toYmd(firstSelectable());
         if (!dateInput.value) dateInput.value = toYmd(nextAllowed(new Date()));
     }
 
@@ -105,6 +115,9 @@
         const d = new Date(data.date + 'T00:00:00');
         if (isNaN(d) || !ALLOWED_DAYS.has(d.getDay())) {
             return fail(dateInput, dateInput.dataset.invalidMsg);
+        }
+        if (d < BOOKING_OPENS) {
+            return fail(dateInput, dateInput.dataset.earlyMsg);
         }
         if (!String(data.name || '').trim()) {
             return fail(nameInput, nameInput.dataset.invalidMsg);

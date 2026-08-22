@@ -52,13 +52,13 @@ function localBusinessLd() {
     image: `${BASE_URL}/og-image.svg`,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Via del Pratello',
+      streetAddress: 'Piazza 8 Agosto',
       addressLocality: 'Bologna',
       addressRegion: 'BO',
-      postalCode: '40122',
+      postalCode: '40126',
       addressCountry: 'IT'
     },
-    geo: { '@type': 'GeoCoordinates', latitude: 44.4949, longitude: 11.3293 },
+    geo: { '@type': 'GeoCoordinates', latitude: 44.4989, longitude: 11.3455 },
     telephone: WHATSAPP_DISPLAY,
     priceRange: '€€',
     touristType: ['Students', 'Young adults', 'Backpackers', 'Erasmus students'],
@@ -78,13 +78,13 @@ function eventLd(t) {
     image: `${BASE_URL}/og-image.svg`,
     location: {
       '@type': 'Place',
-      name: 'Via del Pratello',
+      name: 'Piazza 8 Agosto',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Via del Pratello',
+        streetAddress: 'Piazza 8 Agosto',
         addressLocality: 'Bologna',
         addressRegion: 'BO',
-        postalCode: '40122',
+        postalCode: '40126',
         addressCountry: 'IT'
       }
     },
@@ -348,7 +348,7 @@ function renderPage(t) {
                     <input type="hidden" name="lang" value="${t.lang}" />
                     <div class="form-row two-cols">
                         <label>${escapeHtml(t.book.date)} *
-                            <input type="date" name="date" required data-invalid-msg="${escapeHtml(t.book.dateInvalid)}" />
+                            <input type="date" name="date" required data-invalid-msg="${escapeHtml(t.book.dateInvalid)}" data-early-msg="${escapeHtml(t.book.dateTooEarly)}" />
                             <small class="form-help">${escapeHtml(t.book.dateHelp)}</small>
                         </label>
                         <label>${escapeHtml(t.book.people)} *

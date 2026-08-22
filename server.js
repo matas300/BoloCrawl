@@ -118,6 +118,8 @@ function clean(v, max = 200) {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+// Le prenotazioni aprono a settembre 2026 (allineato a public/js/app.js).
+const BOOKING_OPENS = '2026-09-01';
 
 app.post('/api/book', async (req, res) => {
   const b = req.body || {};
@@ -131,6 +133,7 @@ app.post('/api/book', async (req, res) => {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return res.status(400).json({ error: 'date' });
   const dayOfWeek = new Date(date + 'T00:00:00').getDay();
   if (![4, 5, 6].includes(dayOfWeek)) return res.status(400).json({ error: 'date_weekday' });
+  if (date < BOOKING_OPENS) return res.status(400).json({ error: 'date_early' });
   if (!Number.isFinite(people) || people < 1 || people > 50) {
     return res.status(400).json({ error: 'people' });
   }

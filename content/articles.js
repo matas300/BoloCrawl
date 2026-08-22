@@ -46,7 +46,7 @@ const articles = {
         },
         {
           h2: '2. Pub Crawl: il modo più divertente per vivere la notte',
-          p: 'Se vuoi conoscere Bologna di notte nel modo più veloce e divertente, il pub crawl è l\'opzione ideale: 4 pub, shot di benvenuto in ogni locale, giochi alcolici come beer pong, sconti sui drink e ingresso gratuito in discoteca. Ritrovo ore 21:00 in Via del Pratello. Il Pub Crawl Bologna si svolge ogni giovedì, venerdì e sabato a 25€ tutto incluso.'
+          p: 'Se vuoi conoscere Bologna di notte nel modo più veloce e divertente, il pub crawl è l\'opzione ideale: 4 pub, shot di benvenuto in ogni locale, giochi alcolici come beer pong, sconti sui drink e ingresso gratuito in discoteca. Ritrovo ore 21:00 in Piazza 8 Agosto. Il Pub Crawl Bologna si svolge ogni giovedì, venerdì e sabato a 25€ tutto incluso.'
         },
         {
           h2: '3. Via del Pratello a piedi',
@@ -78,7 +78,7 @@ const articles = {
       sections: [
         {
           h2: 'Perché il pub crawl è perfetto per gli Erasmus',
-          p: 'Il pub crawl riunisce ogni sera un gruppo eterogeneo di persone — Erasmus, turisti, gente in viaggio, studenti italiani. Non devi conoscere nessuno prima: ti presenti al ritrovo in Via del Pratello alle 21:00, ti offrono uno shot di benvenuto, parti con il gruppo. Gli shot gratuiti in ogni locale e i giochi alcolici (beer pong, drunk cards) rendono impossibile non fare amicizia. Entro la seconda tappa conoscerai tutto il gruppo per nome.'
+          p: 'Il pub crawl riunisce ogni sera un gruppo eterogeneo di persone — Erasmus, turisti, gente in viaggio, studenti italiani. Non devi conoscere nessuno prima: ti presenti al ritrovo in Piazza 8 Agosto alle 21:00, ti offrono uno shot di benvenuto, parti con il gruppo. Gli shot gratuiti in ogni locale e i giochi alcolici (beer pong, drunk cards) rendono impossibile non fare amicizia. Entro la seconda tappa conoscerai tutto il gruppo per nome.'
         },
         {
           h2: 'Bologna, la città Erasmus per eccellenza',
@@ -90,7 +90,7 @@ const articles = {
         },
         {
           h2: 'Cosa aspettarsi dalla serata',
-          p: 'Ritrovo 21:00 in Via del Pratello. Prima tappa: welcome shot e presentazioni. Seconda e terza tappa: beer pong e sconti sui drink, il gruppo inizia a socializzare seriamente. Quarta tappa: ultimo drink insieme. Verso le 00:30-01:00 ci si sposta tutti insieme in discoteca con ingresso gratuito e saltafila. Si finisce verso le 2-3 di notte.'
+          p: 'Ritrovo 21:00 in Piazza 8 Agosto. Prima tappa: welcome shot e presentazioni. Seconda e terza tappa: beer pong e sconti sui drink, il gruppo inizia a socializzare seriamente. Quarta tappa: ultimo drink insieme. Verso le 00:30-01:00 ci si sposta tutti insieme in discoteca con ingresso gratuito e saltafila. Si finisce verso le 2-3 di notte.'
         },
         {
           h2: 'Lingua: non devi parlare italiano',

@@ -49,60 +49,60 @@ const TEXTS = {
     hi: name => `Ciao ${name},`,
     intro: 'la tua prenotazione al Pub Crawl Bologna è registrata. Ecco il riepilogo:',
     date: 'Data', people: 'Persone', meet: 'Ritrovo', total: 'Totale',
-    meetValue: 'Via del Pratello, Bologna — ore 21:00',
+    meetValue: 'Piazza 8 Agosto, Bologna — ore 21:00',
     payTitle: 'Come si paga',
     payBody: 'Non serve nessun pagamento online: paghi di persona al ritrovo, in contanti, con Revolut o PayPal.',
     tips: 'Porta un documento di identità (il pub crawl è riservato ai maggiorenni) e presentati qualche minuto prima delle 21:00.',
     change: 'Se hai un imprevisto o devi cambiare data, rispondi a questa email o scrivici su WhatsApp:',
-    bye: 'Ci vediamo al Pratello! 🍻'
+    bye: 'Ci vediamo lì! 🍻'
   },
   en: {
     subject: 'Booking confirmed — Pub Crawl Bologna',
     hi: name => `Hi ${name},`,
     intro: 'your Pub Crawl Bologna booking is registered. Here is the summary:',
     date: 'Date', people: 'People', meet: 'Meeting point', total: 'Total',
-    meetValue: 'Via del Pratello, Bologna — 9:00 PM',
+    meetValue: 'Piazza 8 Agosto, Bologna — 9:00 PM',
     payTitle: 'How to pay',
     payBody: 'No online payment needed: you pay in person at the meeting point, by cash, Revolut or PayPal.',
     tips: 'Bring a valid ID (the pub crawl is 18+) and get there a few minutes before 9:00 PM.',
     change: 'If something comes up or you need to change the date, reply to this email or message us on WhatsApp:',
-    bye: 'See you on Via del Pratello! 🍻'
+    bye: 'See you there! 🍻'
   },
   es: {
     subject: 'Reserva confirmada — Pub Crawl Bolonia',
     hi: name => `Hola ${name}:`,
     intro: 'tu reserva del Pub Crawl Bolonia está registrada. Este es el resumen:',
     date: 'Fecha', people: 'Personas', meet: 'Punto de encuentro', total: 'Total',
-    meetValue: 'Via del Pratello, Bolonia — 21:00',
+    meetValue: 'Piazza 8 Agosto, Bolonia — 21:00',
     payTitle: 'Cómo se paga',
     payBody: 'No hace falta ningún pago online: pagas en persona en el punto de encuentro, en efectivo, con Revolut o PayPal.',
     tips: 'Trae un documento de identidad (el pub crawl es para mayores de 18) y llega unos minutos antes de las 21:00.',
     change: 'Si te surge un imprevisto o necesitas cambiar la fecha, responde a este email o escríbenos por WhatsApp:',
-    bye: '¡Nos vemos en el Pratello! 🍻'
+    bye: '¡Nos vemos allí! 🍻'
   },
   de: {
     subject: 'Buchung bestätigt — Pub Crawl Bologna',
     hi: name => `Hallo ${name},`,
     intro: 'deine Buchung für den Pub Crawl Bologna ist registriert. Hier die Übersicht:',
     date: 'Datum', people: 'Personen', meet: 'Treffpunkt', total: 'Gesamt',
-    meetValue: 'Via del Pratello, Bologna — 21:00 Uhr',
+    meetValue: 'Piazza 8 Agosto, Bologna — 21:00 Uhr',
     payTitle: 'Bezahlung',
     payBody: 'Keine Online-Zahlung nötig: du zahlst persönlich am Treffpunkt, bar, per Revolut oder PayPal.',
     tips: 'Bring einen Ausweis mit (Mindestalter 18) und sei ein paar Minuten vor 21:00 Uhr da.',
     change: 'Falls etwas dazwischenkommt oder du das Datum ändern musst, antworte auf diese E-Mail oder schreib uns auf WhatsApp:',
-    bye: 'Bis bald in der Via del Pratello! 🍻'
+    bye: 'Bis bald! 🍻'
   },
   fr: {
     subject: 'Réservation confirmée — Pub Crawl Bologne',
     hi: name => `Salut ${name},`,
     intro: 'ta réservation au Pub Crawl Bologne est enregistrée. Voici le récapitulatif :',
     date: 'Date', people: 'Personnes', meet: 'Rendez-vous', total: 'Total',
-    meetValue: 'Via del Pratello, Bologne — 21h00',
+    meetValue: 'Piazza 8 Agosto, Bologne — 21h00',
     payTitle: 'Comment payer',
     payBody: 'Aucun paiement en ligne : tu paies sur place au rendez-vous, en espèces, avec Revolut ou PayPal.',
     tips: "Apporte une pièce d'identité (le pub crawl est réservé aux 18 ans et plus) et arrive quelques minutes avant 21h00.",
     change: "En cas d'imprévu ou si tu dois changer de date, réponds à cet email ou écris-nous sur WhatsApp :",
-    bye: 'À bientôt sur le Pratello ! 🍻'
+    bye: 'À bientôt ! 🍻'
   }
 };
 
@@ -111,7 +111,7 @@ const WRAP = (body) => `<!DOCTYPE html>
   <div style="max-width:560px;margin:0 auto;background:#1e1a2b;border-radius:14px;padding:28px">
     ${body}
     <p style="margin:28px 0 0;padding-top:16px;border-top:1px solid #2f2a3f;color:#a39cb0;font-size:12px">
-      Bolo Crawl — Pub Crawl Bologna · Via del Pratello, Bologna
+      Bolo Crawl — Pub Crawl Bologna · Piazza 8 Agosto, Bologna
     </p>
   </div>
 </body></html>`;
@@ -162,7 +162,7 @@ function notifyEmail(b) {
     </table>
     <div style="background:#15121f;border-left:3px solid #ffb84d;border-radius:8px;padding:14px 16px">
       <strong style="display:block;margin-bottom:6px;font-size:14px;color:#ffb84d">👉 Conferma tu al cliente</strong>
-      <span style="font-size:14px;line-height:1.6;color:#d9d4e0">Rispondi a questa email: la risposta arriva direttamente a ${esc(b.email)}.${b.phone ? ` Oppure scrivigli su <a href="https://wa.me/${String(b.phone).replace(/[^0-9]/g, '')}" style="color:#25d366;font-weight:600;text-decoration:none">WhatsApp (${esc(b.phone)})</a>.` : ''} Ricordagli il ritrovo alle 21:00 in Via del Pratello e che si paga sul posto.</span>
+      <span style="font-size:14px;line-height:1.6;color:#d9d4e0">Rispondi a questa email: la risposta arriva direttamente a ${esc(b.email)}.${b.phone ? ` Oppure scrivigli su <a href="https://wa.me/${String(b.phone).replace(/[^0-9]/g, '')}" style="color:#25d366;font-weight:600;text-decoration:none">WhatsApp (${esc(b.phone)})</a>.` : ''} Ricordagli il ritrovo alle 21:00 in Piazza 8 Agosto e che si paga sul posto.</span>
     </div>`);
   return { subject: `Nuova prenotazione — ${b.people} pax il ${b.date} (${b.name})`, html };
 }

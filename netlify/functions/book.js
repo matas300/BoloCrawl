@@ -3,6 +3,8 @@ const { sendBookingEmails } = require('./_email');
 
 const SUPPORTED = ['it', 'en', 'es', 'de', 'fr'];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+// Le prenotazioni aprono a settembre 2026 (allineato a public/js/app.js).
+const BOOKING_OPENS = '2026-09-01';
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -24,6 +26,9 @@ exports.handler = async (event) => {
     const dayOfWeek = new Date(date + 'T00:00:00').getDay();
     if (![4, 5, 6].includes(dayOfWeek)) {
       return { statusCode: 400, body: JSON.stringify({ error: 'date_weekday' }) };
+    }
+    if (date < BOOKING_OPENS) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'date_early' }) };
     }
     if (!Number.isFinite(people) || people < 1 || people > 50) {
       return { statusCode: 400, body: JSON.stringify({ error: 'people' }) };

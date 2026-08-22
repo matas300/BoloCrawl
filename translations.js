@@ -18,18 +18,18 @@ const translations = {
       book: 'Prenota'
     },
     hero: {
-      badge: 'Giovedì · Venerdì · Sabato',
+      badge: 'Da settembre · Gio · Ven · Sab',
       h1: 'Pub Crawl Bologna',
       subtitle: 'Il tour dei pub più divertente della città. 4 locali, shot di benvenuto, giochi alcolici, sconti sui drink e ingresso in discoteca incluso.',
-      cta: 'Prenota a 25€',
-      meta: 'Ritrovo ore 21:00 — Via del Pratello, Bologna',
+      cta: 'Prenota ora',
+      meta: 'Ritrovo ore 21:00 — Piazza 8 Agosto, Bologna',
       payNote: 'Prenota ora, paghi dopo: contanti, Revolut o PayPal direttamente al ritrovo'
     },
     howItWorks: {
       title: 'Come funziona il Pub Crawl',
       subtitle: 'Una notte, 4 locali, tantissime persone da tutto il mondo.',
       steps: [
-        { n: '1', t: 'Ritrovo & Welcome Shot', d: 'Ci incontriamo alle 21:00 in Via del Pratello. Shot di benvenuto offerto per rompere il ghiaccio.' },
+        { n: '1', t: 'Ritrovo & Welcome Shot', d: 'Ci incontriamo alle 21:00 in Piazza 8 Agosto. Shot di benvenuto offerto per rompere il ghiaccio.' },
         { n: '2', t: '4 Pub, Giochi Alcolici', d: 'Tappe in 4 tra i migliori pub di Bologna con beer pong, giochi di carte alcolici e drink scontati.' },
         { n: '3', t: 'Ingresso in Discoteca', d: 'Finiamo la serata con ingresso gratuito in una delle discoteche più in voga della città.' },
         { n: '4', t: 'Nuovi Amici', d: 'Incontra viaggiatori, Erasmus e locali. È il modo migliore per vivere Bologna di notte.' }
@@ -38,9 +38,9 @@ const translations = {
     includes: {
       title: 'Cosa è incluso nei 25€',
       items: [
-        'Shot di benvenuto gratuito in ogni locale',
+        'Shot di benvenuto gratuito',
         'Tour guidato in 4 pub selezionati',
-        'Giochi alcolici (beer pong, drunk cards)',
+        'Giochi alcolici',
         'Sconti esclusivi sui drink in ogni locale',
         'Ingresso in discoteca incluso (salta la fila)',
         'Guide internazionali che parlano inglese, italiano e spagnolo'
@@ -50,8 +50,8 @@ const translations = {
       title: 'Domande frequenti',
       items: [
         { q: 'Quanto costa il pub crawl?', a: 'Solo 25€ a persona, tutto incluso: welcome shot, 4 pub, giochi, sconti sui drink e ingresso in discoteca.' },
-        { q: 'Quando si svolge?', a: 'Ogni giovedì, venerdì e sabato. Ritrovo alle 21:00 in Via del Pratello. La serata finisce in discoteca verso le 2 di notte.' },
-        { q: 'Dove ci si incontra?', a: 'In Via del Pratello, Bologna. Il punto esatto te lo mandiamo via email o WhatsApp dopo la prenotazione.' },
+        { q: 'Quando si svolge?', a: 'Ogni giovedì, venerdì e sabato. Ritrovo alle 21:00 in Piazza 8 Agosto. La serata finisce in discoteca verso le 2 di notte.' },
+        { q: 'Dove ci si incontra?', a: 'In Piazza 8 Agosto, Bologna. Il punto esatto te lo mandiamo via email o WhatsApp dopo la prenotazione.' },
         { q: 'Devo essere maggiorenne?', a: 'Sì, per partecipare al pub crawl bisogna avere almeno 18 anni. Porta un documento di identità.' },
         { q: 'Posso venire da solo?', a: 'Assolutamente sì! La maggior parte dei partecipanti viene da sola. È il modo perfetto per conoscere gente nuova.' },
         { q: 'Come si prenota?', a: 'Scegli data e numero di persone nel modulo qui sotto: ti basta un click. Nessun pagamento online — prenoti ora e paghi dopo, direttamente al ritrovo.' },
@@ -62,8 +62,9 @@ const translations = {
       title: 'Prenota il tuo Pub Crawl',
       subtitle: 'Scegli la data e il numero di persone, ci pensiamo noi.',
       date: 'Data del pub crawl',
-      dateHelp: 'Disponibile solo giovedì, venerdì e sabato',
+      dateHelp: 'Prenotazioni da settembre — solo giovedì, venerdì e sabato',
       dateInvalid: 'Puoi scegliere solo giovedì, venerdì o sabato.',
+      dateTooEarly: 'Le prenotazioni partono da settembre: scegli una data da settembre in poi.',
       people: 'Numero di persone',
       name: 'Nome e cognome',
       email: 'Email',
@@ -81,7 +82,7 @@ const translations = {
     },
     modal: {
       title: '🍻 Prenotazione ricevuta!',
-      body: 'Ti ricontattiamo a breve via email o WhatsApp per confermarti il posto e darti il punto esatto del ritrovo. Ci vediamo in Via del Pratello alle 21:00 — paghi lì: contanti, Revolut o PayPal.',
+      body: 'Ti ricontattiamo a breve via email o WhatsApp per confermarti il posto e darti il punto esatto del ritrovo. Ci vediamo in Piazza 8 Agosto alle 21:00 — paghi lì: contanti, Revolut o PayPal.',
       close: 'Chiudi'
     },
     whatsapp: {
@@ -113,18 +114,18 @@ const translations = {
       book: 'Book now'
     },
     hero: {
-      badge: 'Thursday · Friday · Saturday',
+      badge: 'From September · Thu · Fri · Sat',
       h1: 'Pub Crawl Bologna',
       subtitle: 'The most fun bar tour in town. 4 venues, welcome shot, drinking games, drink discounts and free club entry included.',
-      cta: 'Book for €25',
-      meta: 'Meet at 9:00 PM — Via del Pratello, Bologna',
+      cta: 'Book now',
+      meta: 'Meet at 9:00 PM — Piazza 8 Agosto, Bologna',
       payNote: 'Book now, pay later: cash, Revolut or PayPal right at the meeting point'
     },
     howItWorks: {
       title: 'How the Pub Crawl works',
       subtitle: 'One night, 4 bars, lots of people from all over the world.',
       steps: [
-        { n: '1', t: 'Meet-up & Welcome Shot', d: 'We meet at 9:00 PM on Via del Pratello. Free welcome shot to break the ice.' },
+        { n: '1', t: 'Meet-up & Welcome Shot', d: 'We meet at 9:00 PM in Piazza 8 Agosto. Free welcome shot to break the ice.' },
         { n: '2', t: '4 Bars, Drinking Games', d: 'Stops in 4 of Bologna\'s best pubs with beer pong, card games and discounted drinks.' },
         { n: '3', t: 'Free Club Entry', d: 'We end the night with free entry to one of the hottest clubs in the city.' },
         { n: '4', t: 'Make New Friends', d: 'Meet travelers, Erasmus students and locals. The best way to experience Bologna by night.' }
@@ -133,9 +134,9 @@ const translations = {
     includes: {
       title: 'What\'s included for €25',
       items: [
-        'Free welcome shot in every venue',
+        'Free welcome shot',
         'Guided tour through 4 selected pubs',
-        'Drinking games (beer pong, drunk cards)',
+        'Drinking games',
         'Exclusive drink discounts in every venue',
         'Free club entry (skip the line)',
         'International guides speaking English, Italian and Spanish'
@@ -145,8 +146,8 @@ const translations = {
       title: 'Frequently asked questions',
       items: [
         { q: 'How much does it cost?', a: 'Only €25 per person, all included: welcome shot, 4 pubs, games, drink discounts and club entry.' },
-        { q: 'When does it take place?', a: 'Every Thursday, Friday and Saturday. Meet at 9:00 PM on Via del Pratello. The night ends at the club around 2 AM.' },
-        { q: 'Where do we meet?', a: 'Via del Pratello, Bologna. We send you the exact spot by email or WhatsApp after you book.' },
+        { q: 'When does it take place?', a: 'Every Thursday, Friday and Saturday. Meet at 9:00 PM in Piazza 8 Agosto. The night ends at the club around 2 AM.' },
+        { q: 'Where do we meet?', a: 'Piazza 8 Agosto, Bologna. We send you the exact spot by email or WhatsApp after you book.' },
         { q: 'Do I need to be 18+?', a: 'Yes, you must be at least 18 years old. Please bring a valid ID.' },
         { q: 'Can I come alone?', a: 'Absolutely! Most people come alone. It\'s the perfect way to meet new friends.' },
         { q: 'How do I book?', a: 'Pick the date and number of people in the form below — just one click. No online payment — you book now and pay later, right at the meeting point.' },
@@ -157,8 +158,9 @@ const translations = {
       title: 'Book your Pub Crawl',
       subtitle: 'Pick a date and the number of people, we\'ll take care of the rest.',
       date: 'Pub crawl date',
-      dateHelp: 'Available only on Thursdays, Fridays and Saturdays',
+      dateHelp: 'Bookings from September — Thursdays, Fridays and Saturdays only',
       dateInvalid: 'You can only choose a Thursday, Friday or Saturday.',
+      dateTooEarly: 'Bookings start in September: please pick a date from September onwards.',
       people: 'Number of people',
       name: 'Full name',
       email: 'Email',
@@ -176,7 +178,7 @@ const translations = {
     },
     modal: {
       title: '🍻 Booking received!',
-      body: 'We will get back to you shortly by email or WhatsApp to confirm your spot and give you the exact meeting point. See you on Via del Pratello at 9:00 PM — you pay there: cash, Revolut or PayPal.',
+      body: 'We will get back to you shortly by email or WhatsApp to confirm your spot and give you the exact meeting point. See you in Piazza 8 Agosto at 9:00 PM — you pay there: cash, Revolut or PayPal.',
       close: 'Close'
     },
     whatsapp: {
@@ -208,18 +210,18 @@ const translations = {
       book: 'Reservar'
     },
     hero: {
-      badge: 'Jueves · Viernes · Sábado',
+      badge: 'Desde septiembre · Jue · Vie · Sáb',
       h1: 'Pub Crawl Bolonia',
       subtitle: 'El tour de bares más divertido de la ciudad. 4 locales, chupito de bienvenida, juegos, descuentos y entrada a discoteca incluida.',
-      cta: 'Reserva por 25€',
-      meta: 'Encuentro a las 21:00 — Via del Pratello, Bolonia',
+      cta: 'Reserva ahora',
+      meta: 'Encuentro a las 21:00 — Piazza 8 Agosto, Bolonia',
       payNote: 'Reserva ahora, paga después: efectivo, Revolut o PayPal en el punto de encuentro'
     },
     howItWorks: {
       title: 'Cómo funciona el Pub Crawl',
       subtitle: 'Una noche, 4 bares, gente de todo el mundo.',
       steps: [
-        { n: '1', t: 'Encuentro y chupito', d: 'Nos vemos a las 21:00 en Via del Pratello. Chupito de bienvenida gratis para romper el hielo.' },
+        { n: '1', t: 'Encuentro y chupito', d: 'Nos vemos a las 21:00 en Piazza 8 Agosto. Chupito de bienvenida gratis para romper el hielo.' },
         { n: '2', t: '4 bares, juegos alcohólicos', d: 'Paradas en 4 de los mejores pubs de Bolonia con beer pong, juegos de cartas y descuentos.' },
         { n: '3', t: 'Entrada a discoteca', d: 'Terminamos la noche con entrada gratis a una de las discotecas más de moda.' },
         { n: '4', t: 'Nuevos amigos', d: 'Conoce viajeros, Erasmus y locales. La mejor forma de vivir Bolonia de noche.' }
@@ -228,9 +230,9 @@ const translations = {
     includes: {
       title: 'Qué incluye por 25€',
       items: [
-        'Chupito de bienvenida gratis en cada local',
+        'Chupito de bienvenida gratis',
         'Tour guiado por 4 pubs seleccionados',
-        'Juegos alcohólicos (beer pong, drunk cards)',
+        'Juegos alcohólicos',
         'Descuentos exclusivos en cada local',
         'Entrada a discoteca gratis (sin cola)',
         'Guías internacionales en inglés, italiano y español'
@@ -240,8 +242,8 @@ const translations = {
       title: 'Preguntas frecuentes',
       items: [
         { q: '¿Cuánto cuesta?', a: 'Solo 25€ por persona, todo incluido: chupito, 4 pubs, juegos, descuentos y entrada a discoteca.' },
-        { q: '¿Cuándo es?', a: 'Cada jueves, viernes y sábado. Encuentro a las 21:00 en Via del Pratello. Termina en discoteca hacia las 2 AM.' },
-        { q: '¿Dónde nos vemos?', a: 'Via del Pratello, Bolonia. Te enviamos el punto exacto por email o WhatsApp tras reservar.' },
+        { q: '¿Cuándo es?', a: 'Cada jueves, viernes y sábado. Encuentro a las 21:00 en Piazza 8 Agosto. Termina en discoteca hacia las 2 AM.' },
+        { q: '¿Dónde nos vemos?', a: 'Piazza 8 Agosto, Bolonia. Te enviamos el punto exacto por email o WhatsApp tras reservar.' },
         { q: '¿Debo ser mayor de edad?', a: 'Sí, debes tener al menos 18 años. Trae un documento válido.' },
         { q: '¿Puedo ir solo?', a: '¡Por supuesto! La mayoría viene sola. Es la manera perfecta de hacer amigos.' },
         { q: '¿Cómo reservo?', a: 'Elige la fecha y el número de personas en el formulario de abajo, un solo click. Sin pago online: reservas ahora y pagas después, en el punto de encuentro.' },
@@ -252,8 +254,9 @@ const translations = {
       title: 'Reserva tu Pub Crawl',
       subtitle: 'Elige la fecha y el número de personas, nosotros nos encargamos.',
       date: 'Fecha del pub crawl',
-      dateHelp: 'Disponible solo jueves, viernes y sábado',
+      dateHelp: 'Reservas desde septiembre — solo jueves, viernes y sábado',
       dateInvalid: 'Solo puedes elegir jueves, viernes o sábado.',
+      dateTooEarly: 'Las reservas empiezan en septiembre: elige una fecha a partir de septiembre.',
       people: 'Número de personas',
       name: 'Nombre y apellidos',
       email: 'Email',
@@ -271,7 +274,7 @@ const translations = {
     },
     modal: {
       title: '🍻 ¡Reserva recibida!',
-      body: 'Te contactamos en breve por email o WhatsApp para confirmarte la plaza y darte el punto exacto de encuentro. Nos vemos en Via del Pratello a las 21:00 — pagas allí: efectivo, Revolut o PayPal.',
+      body: 'Te contactamos en breve por email o WhatsApp para confirmarte la plaza y darte el punto exacto de encuentro. Nos vemos en Piazza 8 Agosto a las 21:00 — pagas allí: efectivo, Revolut o PayPal.',
       close: 'Cerrar'
     },
     whatsapp: {
@@ -301,18 +304,18 @@ const translations = {
       book: 'Buchen'
     },
     hero: {
-      badge: 'Donnerstag · Freitag · Samstag',
+      badge: 'Ab September · Do · Fr · Sa',
       h1: 'Pub Crawl Bologna',
       subtitle: 'Die lustigste Bar-Tour der Stadt. 4 Locations, Welcome-Shot, Trinkspiele, Drink-Rabatte und Club-Eintritt inklusive.',
-      cta: 'Für 25€ buchen',
-      meta: 'Treffpunkt 21:00 — Via del Pratello, Bologna',
+      cta: 'Jetzt buchen',
+      meta: 'Treffpunkt 21:00 — Piazza 8 Agosto, Bologna',
       payNote: 'Jetzt buchen, später zahlen: bar, Revolut oder PayPal direkt am Treffpunkt'
     },
     howItWorks: {
       title: 'So läuft der Pub Crawl ab',
       subtitle: 'Eine Nacht, 4 Bars, viele Menschen aus aller Welt.',
       steps: [
-        { n: '1', t: 'Treffen & Welcome-Shot', d: 'Wir treffen uns um 21:00 in der Via del Pratello. Gratis Welcome-Shot zum Kennenlernen.' },
+        { n: '1', t: 'Treffen & Welcome-Shot', d: 'Wir treffen uns um 21:00 auf der Piazza 8 Agosto. Gratis Welcome-Shot zum Kennenlernen.' },
         { n: '2', t: '4 Bars, Trinkspiele', d: 'Stopps in 4 der besten Pubs Bolognas mit Beer Pong, Kartenspielen und Rabatten.' },
         { n: '3', t: 'Gratis Club-Eintritt', d: 'Wir enden die Nacht mit freiem Eintritt in einen angesagten Club.' },
         { n: '4', t: 'Neue Freunde', d: 'Triff Reisende, Erasmus-Studenten und Locals. Die beste Art Bologna bei Nacht zu erleben.' }
@@ -321,9 +324,9 @@ const translations = {
     includes: {
       title: 'Im 25€-Preis enthalten',
       items: [
-        'Gratis Welcome-Shot in jeder Bar',
+        'Gratis Welcome-Shot',
         'Geführte Tour durch 4 ausgewählte Pubs',
-        'Trinkspiele (Beer Pong, Drunk Cards)',
+        'Trinkspiele',
         'Exklusive Drink-Rabatte in jeder Bar',
         'Freier Club-Eintritt (ohne anstehen)',
         'Internationale Guides auf Englisch, Italienisch und Spanisch'
@@ -333,8 +336,8 @@ const translations = {
       title: 'Häufige Fragen',
       items: [
         { q: 'Wie viel kostet es?', a: 'Nur 25€ pro Person, alles inklusive: Welcome-Shot, 4 Pubs, Spiele, Rabatte und Club-Eintritt.' },
-        { q: 'Wann findet es statt?', a: 'Jeden Donnerstag, Freitag und Samstag. Treffpunkt 21:00 in der Via del Pratello. Ende im Club gegen 2 Uhr morgens.' },
-        { q: 'Wo treffen wir uns?', a: 'Via del Pratello, Bologna. Den genauen Punkt schicken wir nach der Buchung per E-Mail oder WhatsApp.' },
+        { q: 'Wann findet es statt?', a: 'Jeden Donnerstag, Freitag und Samstag. Treffpunkt 21:00 auf der Piazza 8 Agosto. Ende im Club gegen 2 Uhr morgens.' },
+        { q: 'Wo treffen wir uns?', a: 'Piazza 8 Agosto, Bologna. Den genauen Punkt schicken wir nach der Buchung per E-Mail oder WhatsApp.' },
         { q: 'Muss ich 18+ sein?', a: 'Ja, Mindestalter 18. Bitte einen Ausweis mitbringen.' },
         { q: 'Kann ich alleine kommen?', a: 'Klar! Die meisten kommen alleine. Perfekt um neue Leute kennenzulernen.' },
         { q: 'Wie buche ich?', a: 'Datum und Personenzahl im Formular unten auswählen — ein Klick genügt. Keine Online-Zahlung: du buchst jetzt und zahlst später direkt am Treffpunkt.' },
@@ -345,8 +348,9 @@ const translations = {
       title: 'Pub Crawl buchen',
       subtitle: 'Wähle Datum und Anzahl Personen, wir kümmern uns um den Rest.',
       date: 'Datum',
-      dateHelp: 'Nur Donnerstag, Freitag und Samstag verfügbar',
+      dateHelp: 'Buchungen ab September — nur Donnerstag, Freitag und Samstag',
       dateInvalid: 'Du kannst nur Donnerstag, Freitag oder Samstag auswählen.',
+      dateTooEarly: 'Buchungen starten im September: bitte wähle ein Datum ab September.',
       people: 'Anzahl Personen',
       name: 'Vor- und Nachname',
       email: 'E-Mail',
@@ -364,7 +368,7 @@ const translations = {
     },
     modal: {
       title: '🍻 Buchung eingegangen!',
-      body: 'Wir melden uns in Kürze per E-Mail oder WhatsApp, um deinen Platz zu bestätigen und dir den genauen Treffpunkt zu nennen. Wir sehen uns um 21:00 Uhr in der Via del Pratello — bezahlt wird dort: bar, Revolut oder PayPal.',
+      body: 'Wir melden uns in Kürze per E-Mail oder WhatsApp, um deinen Platz zu bestätigen und dir den genauen Treffpunkt zu nennen. Wir sehen uns um 21:00 Uhr auf der Piazza 8 Agosto — bezahlt wird dort: bar, Revolut oder PayPal.',
       close: 'Schließen'
     },
     whatsapp: {
@@ -394,18 +398,18 @@ const translations = {
       book: 'Réserver'
     },
     hero: {
-      badge: 'Jeudi · Vendredi · Samedi',
+      badge: 'Dès septembre · Jeu · Ven · Sam',
       h1: 'Pub Crawl Bologne',
       subtitle: 'La tournée des bars la plus fun de la ville. 4 lieux, shot de bienvenue, jeux, réductions et entrée en boîte incluse.',
-      cta: 'Réserver pour 25€',
-      meta: 'Rendez-vous 21h00 — Via del Pratello, Bologne',
+      cta: 'Réserve maintenant',
+      meta: 'Rendez-vous 21h00 — Piazza 8 Agosto, Bologne',
       payNote: 'Réserve maintenant, paie plus tard : espèces, Revolut ou PayPal au rendez-vous'
     },
     howItWorks: {
       title: 'Comment se déroule le Pub Crawl',
       subtitle: 'Une nuit, 4 bars, plein de gens du monde entier.',
       steps: [
-        { n: '1', t: 'Rendez-vous & Shot', d: 'On se retrouve à 21h00 sur Via del Pratello. Shot de bienvenue offert pour briser la glace.' },
+        { n: '1', t: 'Rendez-vous & Shot', d: 'On se retrouve à 21h00 sur la Piazza 8 Agosto. Shot de bienvenue offert pour briser la glace.' },
         { n: '2', t: '4 Bars, Jeux d\'alcool', d: 'Étapes dans 4 des meilleurs pubs de Bologne avec beer pong, jeux de cartes et réductions.' },
         { n: '3', t: 'Entrée en Boîte', d: 'On termine la soirée avec une entrée gratuite dans une boîte tendance.' },
         { n: '4', t: 'Nouveaux Amis', d: 'Rencontre voyageurs, Erasmus et locaux. La meilleure façon de vivre Bologne la nuit.' }
@@ -414,9 +418,9 @@ const translations = {
     includes: {
       title: 'Inclus dans les 25€',
       items: [
-        'Shot de bienvenue offert dans chaque bar',
+        'Shot de bienvenue offert',
         'Tour guidé dans 4 pubs sélectionnés',
-        'Jeux d\'alcool (beer pong, drunk cards)',
+        'Jeux d\'alcool',
         'Réductions exclusives dans chaque bar',
         'Entrée en boîte gratuite (coupe-file)',
         'Guides internationaux en anglais, italien et espagnol'
@@ -426,8 +430,8 @@ const translations = {
       title: 'Questions fréquentes',
       items: [
         { q: 'Combien ça coûte ?', a: 'Seulement 25€ par personne, tout inclus : shot, 4 pubs, jeux, réductions et entrée en boîte.' },
-        { q: 'Quand a-t-il lieu ?', a: 'Chaque jeudi, vendredi et samedi. Rendez-vous à 21h00 sur Via del Pratello. Fin en boîte vers 2h du matin.' },
-        { q: 'Où se retrouve-t-on ?', a: 'Via del Pratello, Bologne. On envoie le point exact par email ou WhatsApp après la réservation.' },
+        { q: 'Quand a-t-il lieu ?', a: 'Chaque jeudi, vendredi et samedi. Rendez-vous à 21h00 sur la Piazza 8 Agosto. Fin en boîte vers 2h du matin.' },
+        { q: 'Où se retrouve-t-on ?', a: 'Piazza 8 Agosto, Bologne. On envoie le point exact par email ou WhatsApp après la réservation.' },
         { q: 'Faut-il être majeur ?', a: 'Oui, 18 ans minimum. Merci d\'apporter une pièce d\'identité.' },
         { q: 'Puis-je venir seul ?', a: 'Bien sûr ! La plupart viennent seuls. C\'est parfait pour rencontrer du monde.' },
         { q: 'Comment réserver ?', a: 'Choisis la date et le nombre de personnes dans le formulaire, un seul clic. Aucun paiement en ligne : tu réserves maintenant et tu paies plus tard, sur place.' },
@@ -438,8 +442,9 @@ const translations = {
       title: 'Réserve ton Pub Crawl',
       subtitle: 'Choisis la date et le nombre de personnes, on s\'occupe du reste.',
       date: 'Date',
-      dateHelp: 'Disponible uniquement jeudi, vendredi et samedi',
+      dateHelp: 'Réservations dès septembre — uniquement jeudi, vendredi et samedi',
       dateInvalid: 'Tu peux choisir seulement jeudi, vendredi ou samedi.',
+      dateTooEarly: 'Les réservations commencent en septembre : choisis une date à partir de septembre.',
       people: 'Nombre de personnes',
       name: 'Nom et prénom',
       email: 'Email',
@@ -457,7 +462,7 @@ const translations = {
     },
     modal: {
       title: '🍻 Réservation reçue !',
-      body: 'On te recontacte très vite par email ou WhatsApp pour confirmer ta place et te donner le point de rendez-vous exact. Rendez-vous Via del Pratello à 21h00 — tu paies sur place : espèces, Revolut ou PayPal.',
+      body: 'On te recontacte très vite par email ou WhatsApp pour confirmer ta place et te donner le point de rendez-vous exact. Rendez-vous Piazza 8 Agosto à 21h00 — tu paies sur place : espèces, Revolut ou PayPal.',
       close: 'Fermer'
     },
     whatsapp: {
