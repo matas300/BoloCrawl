@@ -1,4 +1,4 @@
-// Sezione "Perché Bologna / Pratello" con contenuto denso di keyword per SEO.
+// Sezione "Perché Bologna / centro storico" con contenuto denso di keyword per SEO.
 // Separata in un file dedicato per non gonfiare translations.js.
 
 module.exports = {
@@ -7,8 +7,8 @@ module.exports = {
     subtitle: 'Bologna è la città universitaria più viva d\'Italia. Ecco perché la sua movida è diversa da tutte le altre.',
     blocks: [
       {
-        h3: 'Via del Pratello: il cuore della notte bolognese',
-        p: 'Via del Pratello è da sempre la via della movida a Bologna. In meno di 500 metri si concentrano oltre 20 tra pub, bar, osterie e locali con musica dal vivo. È il punto di ritrovo di studenti universitari, Erasmus, giovani professionisti e turisti che vogliono vivere Bologna di notte. Il nostro pub crawl parte proprio da qui, scegliendo ogni sera i locali più vivaci per farti conoscere il meglio della nightlife bolognese.'
+        h3: 'Il centro storico di Bologna: dove si accende la notte',
+        p: "Il centro storico di Bologna concentra la più alta densità di locali della città: tra i portici, le piazze e le vie dell'università si contano decine di pub, birrerie, osterie e cocktail bar, tutti a pochi minuti a piedi l'uno dall'altro. È il punto di ritrovo di studenti universitari, Erasmus, giovani professionisti e turisti che vogliono vivere Bologna di notte. Il nostro pub crawl si muove proprio qui, scegliendo ogni sera i locali più vivaci per farti conoscere il meglio della nightlife bolognese."
       },
       {
         h3: 'Bologna, città universitaria più antica d\'Europa',
@@ -30,8 +30,8 @@ module.exports = {
     subtitle: 'Bologna is Italy\'s liveliest university city. Here\'s why its nightlife is unlike anywhere else.',
     blocks: [
       {
-        h3: 'Via del Pratello: the heart of Bologna nightlife',
-        p: 'Via del Pratello has always been Bologna\'s main nightlife street. In less than 500 meters you\'ll find over 20 pubs, bars, taverns and live-music venues. It\'s the meeting point for university students, Erasmus exchange students, young professionals and travelers who want to experience Bologna by night. Our pub crawl starts right here, picking the liveliest venues each evening so you see the best of Bologna nightlife.'
+        h3: "Bologna's historic centre: where the night happens",
+        p: "Bologna's historic centre packs the highest concentration of venues in the city: between the porticoes, the squares and the university streets you'll find dozens of pubs, breweries, taverns and cocktail bars, all a few minutes' walk from each other. It's the meeting point for university students, Erasmus exchange students, young professionals and travelers who want to experience Bologna by night. Our pub crawl moves right through it, picking the liveliest venues each evening so you see the best of Bologna nightlife."
       },
       {
         h3: 'Bologna, Europe\'s oldest university city',
@@ -53,8 +53,8 @@ module.exports = {
     subtitle: 'Bolonia es la ciudad universitaria más animada de Italia. Su vida nocturna es única.',
     blocks: [
       {
-        h3: 'Via del Pratello: el corazón de la noche boloñesa',
-        p: 'Via del Pratello es desde siempre la calle de la movida en Bolonia. En menos de 500 metros se concentran más de 20 entre pubs, bares, tabernas y locales con música en vivo. Es el punto de encuentro de estudiantes universitarios, Erasmus, jóvenes profesionales y turistas que quieren vivir Bolonia de noche. Nuestro pub crawl empieza justo aquí, eligiendo cada noche los locales más animados.'
+        h3: 'El centro histórico de Bolonia: donde se enciende la noche',
+        p: 'El centro histórico de Bolonia concentra la mayor densidad de locales de la ciudad: entre los pórticos, las plazas y las calles universitarias hay decenas de pubs, cervecerías, tabernas y cocktail bars, todos a pocos minutos a pie unos de otros. Es el punto de encuentro de estudiantes universitarios, Erasmus, jóvenes profesionales y turistas que quieren vivir Bolonia de noche. Nuestro pub crawl se mueve justo por aquí, eligiendo cada noche los locales más animados.'
       },
       {
         h3: 'Bolonia, la ciudad universitaria más antigua de Europa',
@@ -76,8 +76,8 @@ module.exports = {
     subtitle: 'Bologna ist Italiens lebendigste Universitätsstadt. Sein Nachtleben ist einzigartig.',
     blocks: [
       {
-        h3: 'Via del Pratello: das Herz des Bologna-Nachtlebens',
-        p: 'Via del Pratello ist seit jeher die Ausgehstraße Bolognas. Auf weniger als 500 Metern findest du über 20 Pubs, Bars, Tavernen und Live-Music-Locations. Es ist der Treffpunkt von Studenten, Erasmus-Studenten, jungen Berufstätigen und Reisenden, die Bologna bei Nacht erleben wollen. Unser Pub Crawl startet genau hier.'
+        h3: 'Bolognas Altstadt: wo die Nacht beginnt',
+        p: 'In Bolognas Altstadt findest du die höchste Dichte an Locations der Stadt: zwischen den Arkaden, den Plätzen und den Universitätsstraßen liegen Dutzende Pubs, Brauereien, Tavernen und Cocktailbars, alle nur wenige Gehminuten voneinander entfernt. Es ist der Treffpunkt von Studenten, Erasmus-Studenten, jungen Berufstätigen und Reisenden, die Bologna bei Nacht erleben wollen. Genau hier findet unser Pub Crawl statt.'
       },
       {
         h3: 'Bologna, älteste Universitätsstadt Europas',
@@ -99,8 +99,8 @@ module.exports = {
     subtitle: 'Bologne est la ville universitaire la plus animée d\'Italie. Sa vie nocturne est unique.',
     blocks: [
       {
-        h3: 'Via del Pratello : le cœur de la nuit bolognaise',
-        p: 'Via del Pratello est depuis toujours la rue de la vie nocturne à Bologne. Sur moins de 500 mètres on trouve plus de 20 pubs, bars, tavernes et salles de concert. C\'est le point de rencontre des étudiants universitaires, Erasmus, jeunes actifs et voyageurs qui veulent vivre Bologne la nuit. Notre pub crawl démarre ici.'
+        h3: 'Le centre historique de Bologne : là où la nuit commence',
+        p: "Le centre historique de Bologne concentre la plus forte densité de bars de la ville : entre les arcades, les places et les rues de l'université, on trouve des dizaines de pubs, brasseries, tavernes et bars à cocktails, tous à quelques minutes à pied les uns des autres. C'est le point de rencontre des étudiants universitaires, Erasmus, jeunes actifs et voyageurs qui veulent vivre Bologne la nuit. Notre pub crawl se déroule précisément ici."
       },
       {
         h3: 'Bologne, la plus ancienne ville universitaire d\'Europe',

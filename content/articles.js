@@ -6,23 +6,23 @@ const articles = {
   it: [
     {
       slug: 'migliori-pub-bologna',
-      title: 'I Migliori Pub di Bologna — Guida ai Locali di Via del Pratello (2026)',
-      description: 'Quali sono i migliori pub di Bologna? Guida aggiornata ai 10 locali imperdibili di Via del Pratello e zona universitaria: birra artigianale, craft beer, drink economici.',
-      keywords: 'migliori pub bologna, pub bologna via del pratello, dove bere bologna, locali bologna universitari, bar zona universitaria bologna, craft beer bologna, birra artigianale bologna',
+      title: 'I Migliori Pub di Bologna — Guida ai Locali del Centro Storico (2026)',
+      description: 'Quali sono i migliori pub di Bologna? Guida aggiornata ai 10 locali imperdibili del centro storico e della zona universitaria: birra artigianale, craft beer, drink economici.',
+      keywords: 'migliori pub bologna, pub centro storico bologna, dove bere bologna, locali bologna universitari, bar zona universitaria bologna, craft beer bologna, birra artigianale bologna',
       h1: 'I migliori pub di Bologna: la guida 2026',
-      intro: 'Bologna vanta una delle scene di pub e bar più vive d\'Italia. Tra Via del Pratello, la zona universitaria e il centro storico trovi oltre 100 locali dove bere un buon drink. Ecco la guida ai migliori pub di Bologna, dai più storici alle nuove aperture di craft beer.',
+      intro: "Bologna vanta una delle scene di pub e bar più vive d'Italia. Tra il centro storico, i portici e la zona universitaria trovi oltre 100 locali dove bere un buon drink. Ecco la guida ai migliori pub di Bologna, dai più storici alle nuove aperture di craft beer.",
       sections: [
         {
-          h2: 'Via del Pratello — la via dei pub a Bologna',
-          p: 'Via del Pratello è il centro della vita notturna bolognese. La zona è nata come quartiere popolare e oggi è il posto dove studenti universitari, Erasmus e turisti si mescolano in una striscia di locali che va dalle birrerie storiche ai cocktail bar più nuovi. Camminare il Pratello di venerdì sera significa attraversare un fiume di gente: bar, musica dal vivo, gruppi fuori dai locali con il bicchiere in mano, è lo stile della movida bolognese autentica.'
+          h2: 'Il centro storico — il cuore dei pub di Bologna',
+          p: 'Il centro storico è il cuore della vita notturna bolognese. Nel giro di pochi isolati, tra i portici e le piazze, studenti universitari, Erasmus e turisti si mescolano in una rete di locali che va dalle birrerie storiche ai cocktail bar più nuovi. Attraversare il centro di venerdì sera significa incrociare un fiume di gente: bar, musica dal vivo, gruppi fuori dai locali con il bicchiere in mano, è lo stile della movida bolognese autentica.'
         },
         {
-          h2: 'I 5 pub imperdibili del Pratello',
-          p: 'Tra i locali più amati del Pratello ci sono storiche osterie con birra alla spina a prezzo studentesco, pub inglesi con schermi per eventi sportivi, cocktail bar con terrazze, birrifici artigianali con tap list che cambia ogni settimana, e locali con musica dal vivo tutte le sere. Ogni locale ha il suo pubblico: la bellezza del Pratello è che in una serata li attraversi tutti senza mai spostarti di più di 300 metri.'
+          h2: 'I 5 pub imperdibili del centro',
+          p: 'Tra i locali più amati del centro ci sono storiche osterie con birra alla spina a prezzo studentesco, pub inglesi con schermi per eventi sportivi, cocktail bar con terrazze, birrifici artigianali con tap list che cambia ogni settimana, e locali con musica dal vivo tutte le sere. Ogni locale ha il suo pubblico: la bellezza del centro di Bologna è che in una serata li attraversi tutti restando sempre a pochi minuti a piedi.'
         },
         {
-          h2: 'Fuori dal Pratello: Zamboni, Piazza Verdi, Zona universitaria',
-          p: 'Oltre al Pratello, la zona universitaria (Piazza Verdi e Via Zamboni) è il secondo polo della nightlife. Qui i locali sono più piccoli, più economici, e il pubblico è composto quasi esclusivamente da studenti. Nelle sere di apertura dell\'anno accademico la zona si riempie di Erasmus in cerca di compagnia. I prezzi sono tra i più bassi di Bologna.'
+          h2: 'Zamboni, Piazza Verdi e la zona universitaria',
+          p: 'La zona universitaria (Piazza Verdi e Via Zamboni), a due passi da Piazza 8 Agosto, è il secondo polo della nightlife. Qui i locali sono più piccoli, più economici, e il pubblico è composto quasi esclusivamente da studenti. Nelle sere di apertura dell\'anno accademico la zona si riempie di Erasmus in cerca di compagnia. I prezzi sono tra i più bassi di Bologna.'
         },
         {
           h2: 'Perché partecipare a un Pub Crawl invece di girare da solo',
@@ -49,16 +49,16 @@ const articles = {
           p: 'Se vuoi conoscere Bologna di notte nel modo più veloce e divertente, il pub crawl è l\'opzione ideale: 4 pub, shot di benvenuto in ogni locale, giochi alcolici come beer pong, sconti sui drink e ingresso gratuito in discoteca. Ritrovo ore 21:00 in Piazza 8 Agosto. Il Pub Crawl Bologna si svolge ogni giovedì, venerdì e sabato a 25€ tutto incluso.'
         },
         {
-          h2: '3. Via del Pratello a piedi',
-          p: 'Via del Pratello è la strada più vivace della città di notte. Percorrerla a piedi da Porta San Felice verso il centro significa attraversare 20+ locali in 500 metri, con musica, gente fuori dai bar, artisti di strada. Un\'esperienza che vale di per sé.'
+          h2: '3. Il centro storico a piedi',
+          p: "Il centro storico è la zona più vivace della città di notte. Percorrerlo a piedi sotto i portici, da Piazza Maggiore verso la zona universitaria, significa attraversare decine di locali in pochi minuti, con musica, gente fuori dai bar, artisti di strada. Un'esperienza che vale di per sé."
         },
         {
           h2: '4. Cena tipica bolognese',
-          p: 'Bologna è la capitale gastronomica d\'Italia. Prima di una serata lunga, cena con tagliatelle al ragù, tortellini in brodo, lasagna verde o una piadina ripiena. I prezzi nei ristoranti vicino al Pratello sono più accessibili che in centro.'
+          p: 'Bologna è la capitale gastronomica d\'Italia. Prima di una serata lunga, cena con tagliatelle al ragù, tortellini in brodo, lasagna verde o una piadina ripiena. I prezzi nei ristoranti della zona universitaria sono più accessibili che nelle piazze principali.'
         },
         {
           h2: '5. Concerti e musica dal vivo',
-          p: 'Bologna ha una scena musicale storica: dai jazz club al TPO, dalla Cantina Bentivoglio ai locali del Pratello con musica dal vivo, ogni sera c\'è qualcosa. Controlla l\'agenda del Locomotiv Club per concerti indie e rock.'
+          p: 'Bologna ha una scena musicale storica: dai jazz club al TPO, dalla Cantina Bentivoglio ai locali del centro con musica dal vivo, ogni sera c\'è qualcosa. Controlla l\'agenda del Locomotiv Club per concerti indie e rock.'
         },
         {
           h2: '6. Discoteche e club',
