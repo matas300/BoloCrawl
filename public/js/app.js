@@ -6,8 +6,11 @@
     const msg = form.querySelector('.form-msg');
     const modal = document.getElementById('modal');
     const dateInput = form.querySelector('input[name="date"]');
+    const nameInput = form.querySelector('input[name="name"]');
+    const emailInput = form.querySelector('input[name="email"]');
 
     const ALLOWED_DAYS = new Set([4, 5, 6]); // Thu, Fri, Sat
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
     const lang = document.documentElement.lang || 'en';
 
     function toYmd(d) {
@@ -93,11 +96,21 @@
         const data = Object.fromEntries(new FormData(form).entries());
         data.people = parseInt(data.people, 10);
 
+        function fail(field, text) {
+            msg.className = 'form-msg error';
+            msg.textContent = text;
+            if (field) field.focus();
+        }
+
         const d = new Date(data.date + 'T00:00:00');
         if (isNaN(d) || !ALLOWED_DAYS.has(d.getDay())) {
-            msg.className = 'form-msg error';
-            msg.textContent = dateInput.dataset.invalidMsg;
-            return;
+            return fail(dateInput, dateInput.dataset.invalidMsg);
+        }
+        if (!String(data.name || '').trim()) {
+            return fail(nameInput, nameInput.dataset.invalidMsg);
+        }
+        if (!EMAIL_RE.test(String(data.email || '').trim())) {
+            return fail(emailInput, emailInput.dataset.invalidMsg);
         }
 
         btn.disabled = true;

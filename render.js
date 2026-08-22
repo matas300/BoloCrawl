@@ -7,6 +7,24 @@ const articlesByLang = require('./content/articles');
 
 const BASE_URL = process.env.BASE_URL || 'https://pubcrawlbologna.it';
 
+// Contatto WhatsApp: numero in formato internazionale senza spazi né '+' per wa.me.
+const WHATSAPP_NUMBER = '393456433446';
+const WHATSAPP_DISPLAY = '+39 345 643 3446';
+
+const WA_ICON = (size) =>
+  `<svg viewBox="0 0 448 512" width="${size}" height="${size}" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 110.9L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>`;
+
+function waHref(t) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t.whatsapp.message)}`;
+}
+
+function renderWhatsAppFab(t) {
+  return `<a class="wa-fab" href="${waHref(t)}" target="_blank" rel="noopener" aria-label="${escapeHtml(t.whatsapp.fab)}">
+        ${WA_ICON(24)}
+        <span class="wa-fab-label">${escapeHtml(t.whatsapp.fab)}</span>
+    </a>`;
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -41,6 +59,7 @@ function localBusinessLd() {
       addressCountry: 'IT'
     },
     geo: { '@type': 'GeoCoordinates', latitude: 44.4949, longitude: 11.3293 },
+    telephone: WHATSAPP_DISPLAY,
     priceRange: '€€',
     touristType: ['Students', 'Young adults', 'Backpackers', 'Erasmus students'],
     availableLanguage: ['Italian', 'English', 'Spanish', 'German', 'French']
@@ -222,7 +241,8 @@ function renderFooter(t) {
             <p>${escapeHtml(t.footer.tagline)}</p>
             <p class="small">© ${new Date().getFullYear()} Bolo Crawl. ${escapeHtml(t.footer.rights)}</p>
         </div>
-    </footer>`;
+    </footer>
+    ${renderWhatsAppFab(t)}`;
 }
 
 function renderPage(t) {
@@ -258,6 +278,7 @@ function renderPage(t) {
                 <h1>${escapeHtml(t.hero.h1)}</h1>
                 <p class="hero-sub">${escapeHtml(t.hero.subtitle)}</p>
                 <a href="#book" class="btn btn-primary btn-lg">${escapeHtml(t.hero.cta)}</a>
+                <p class="hero-pay">💸 ${escapeHtml(t.hero.payNote)}</p>
                 <p class="hero-meta">📍 ${escapeHtml(t.hero.meta)}</p>
             </div>
         </section>
@@ -288,6 +309,7 @@ function renderPage(t) {
                     <span class="price-label">all inclusive</span>
                 </div>
                 <a href="#book" class="btn btn-primary btn-lg">${escapeHtml(t.hero.cta)}</a>
+                <p class="pay-note">💸 ${escapeHtml(t.hero.payNote)}</p>
             </div>
         </section>
 
@@ -333,9 +355,30 @@ function renderPage(t) {
                             <input type="number" name="people" required min="1" max="50" value="1" />
                         </label>
                     </div>
+                    <div class="form-row">
+                        <label>${escapeHtml(t.book.name)} *
+                            <input type="text" name="name" required autocomplete="name" maxlength="80" data-invalid-msg="${escapeHtml(t.book.nameInvalid)}" />
+                        </label>
+                    </div>
+                    <div class="form-row two-cols">
+                        <label>${escapeHtml(t.book.email)} *
+                            <input type="email" name="email" required autocomplete="email" maxlength="120" data-invalid-msg="${escapeHtml(t.book.emailInvalid)}" />
+                            <small class="form-help">${escapeHtml(t.book.emailHelp)}</small>
+                        </label>
+                        <label>${escapeHtml(t.book.phone)} <span class="opt">${escapeHtml(t.book.optional)}</span>
+                            <input type="tel" name="phone" autocomplete="tel" maxlength="30" />
+                            <small class="form-help">${escapeHtml(t.book.phoneHelp)}</small>
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-lg" data-label="${escapeHtml(t.book.submit)}" data-sending="${escapeHtml(t.book.sending)}">${escapeHtml(t.book.submit)}</button>
+                    <p class="pay-note">💸 ${escapeHtml(t.book.payNote)}</p>
                     <p class="form-msg" data-error="${escapeHtml(t.book.error)}"></p>
+                    <p class="form-privacy">${escapeHtml(t.book.privacy)}</p>
                 </form>
+
+                <p class="wa-inline">${escapeHtml(t.whatsapp.ask)}
+                    <a href="${waHref(t)}" target="_blank" rel="noopener">${WA_ICON(16)} ${escapeHtml(t.whatsapp.cta)}</a>
+                </p>
 
                 <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
                     <div class="modal-backdrop" data-close></div>

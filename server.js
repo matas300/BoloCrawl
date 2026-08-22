@@ -4,6 +4,7 @@ const fs = require('fs');
 const { translations, SUPPORTED_LANGS, DEFAULT_LANG } = require('./translations');
 const { renderPage, renderArticle, BASE_URL, articlesByLang } = require('./render');
 const { renderAdmin, toCsv } = require('./lib/adminHtml');
+const { sendBookingEmails } = require('./netlify/functions/_email');
 
 const PORT = process.env.PORT || 3000;
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
@@ -116,11 +117,16 @@ function clean(v, max = 200) {
   return String(v).trim().slice(0, max);
 }
 
-app.post('/api/book', (req, res) => {
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
+app.post('/api/book', async (req, res) => {
   const b = req.body || {};
   const date = clean(b.date, 20);
   const people = parseInt(b.people, 10);
   const lang = SUPPORTED_LANGS.includes(b.lang) ? b.lang : DEFAULT_LANG;
+  const name = clean(b.name, 80);
+  const email = clean(b.email, 120);
+  const phone = clean(b.phone, 30);
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return res.status(400).json({ error: 'date' });
   const dayOfWeek = new Date(date + 'T00:00:00').getDay();
@@ -128,15 +134,24 @@ app.post('/api/book', (req, res) => {
   if (!Number.isFinite(people) || people < 1 || people > 50) {
     return res.status(400).json({ error: 'people' });
   }
+  if (name.length < 2) return res.status(400).json({ error: 'name' });
+  if (!EMAIL_RE.test(email)) return res.status(400).json({ error: 'email' });
 
-  const bookings = readBookings();
-  bookings.push({
+  const booking = {
     id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
     createdAt: new Date().toISOString(),
-    date, people, lang,
+    date, people, lang, name, email, phone,
     userAgent: clean(req.headers['user-agent'], 300)
-  });
+  };
+
+  const bookings = readBookings();
+  bookings.push(booking);
   writeBookings(bookings);
+
+  // In locale le email partono solo se RESEND_API_KEY è impostata.
+  if (process.env.RESEND_API_KEY) await sendBookingEmails(booking);
+  else console.log('📧 RESEND_API_KEY assente: nessuna notifica inviata per', booking.email);
+
   res.json({ ok: true });
 });
 

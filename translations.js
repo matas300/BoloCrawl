@@ -9,7 +9,7 @@ const translations = {
     title: 'Pub Crawl Bologna | Tour dei Pub con Shot, Giochi Alcolici e Discoteca — 25€',
     description: 'Il miglior Pub Crawl di Bologna: ogni giovedì, venerdì e sabato giro dei pub in Via del Pratello con shot di benvenuto, beer pong, sconti sui drink e ingresso in discoteca. Solo 25€.',
     ogTitle: 'Pub Crawl Bologna — Tour dei Pub e Discoteca | 25€ a persona',
-    ogDescription: 'Unisciti al pub crawl più divertente di Bologna. 4 pub, shot di benvenuto, giochi alcolici e discoteca inclusa. Prenota online.',
+    ogDescription: 'Unisciti al pub crawl più divertente di Bologna. 4 pub, shot di benvenuto, giochi alcolici e discoteca inclusa. Prenota ora, paghi sul posto.',
     keywords: 'pub crawl bologna, pub crawl bologna prezzi, tour dei pub bologna, bologna nightlife, serate bologna, locali bologna, via del pratello, beer pong bologna, discoteca bologna, eventi bologna',
     nav: {
       howItWorks: 'Come funziona',
@@ -22,7 +22,8 @@ const translations = {
       h1: 'Pub Crawl Bologna',
       subtitle: 'Il tour dei pub più divertente della città. 4 locali, shot di benvenuto, giochi alcolici, sconti sui drink e ingresso in discoteca incluso.',
       cta: 'Prenota a 25€',
-      meta: 'Ritrovo ore 21:00 — Via del Pratello, Bologna'
+      meta: 'Ritrovo ore 21:00 — Via del Pratello, Bologna',
+      payNote: 'Prenota ora, paghi dopo: contanti, Revolut o PayPal direttamente al ritrovo'
     },
     howItWorks: {
       title: 'Come funziona il Pub Crawl',
@@ -50,10 +51,11 @@ const translations = {
       items: [
         { q: 'Quanto costa il pub crawl?', a: 'Solo 25€ a persona, tutto incluso: welcome shot, 4 pub, giochi, sconti sui drink e ingresso in discoteca.' },
         { q: 'Quando si svolge?', a: 'Ogni giovedì, venerdì e sabato. Ritrovo alle 21:00 in Via del Pratello. La serata finisce in discoteca verso le 2 di notte.' },
-        { q: 'Dove ci si incontra?', a: 'In Via del Pratello, Bologna. Il punto esatto ti verrà inviato via email dopo la prenotazione.' },
+        { q: 'Dove ci si incontra?', a: 'In Via del Pratello, Bologna. Il punto esatto te lo mandiamo via email o WhatsApp dopo la prenotazione.' },
         { q: 'Devo essere maggiorenne?', a: 'Sì, per partecipare al pub crawl bisogna avere almeno 18 anni. Porta un documento di identità.' },
         { q: 'Posso venire da solo?', a: 'Assolutamente sì! La maggior parte dei partecipanti viene da sola. È il modo perfetto per conoscere gente nuova.' },
-        { q: 'Come si prenota?', a: 'Scegli data e numero di persone nel modulo qui sotto: ti basta un click. Nessun dato personale richiesto, nessun pagamento anticipato.' }
+        { q: 'Come si prenota?', a: 'Scegli data e numero di persone nel modulo qui sotto: ti basta un click. Nessun pagamento online — prenoti ora e paghi dopo, direttamente al ritrovo.' },
+        { q: 'Come si paga?', a: 'Si paga solo di persona, al ritrovo prima di partire: contanti, Revolut o PayPal. Nessun pagamento online e nessun dato della carta da inserire sul sito.' }
       ]
     },
     book: {
@@ -63,14 +65,30 @@ const translations = {
       dateHelp: 'Disponibile solo giovedì, venerdì e sabato',
       dateInvalid: 'Puoi scegliere solo giovedì, venerdì o sabato.',
       people: 'Numero di persone',
+      name: 'Nome e cognome',
+      email: 'Email',
+      phone: 'Telefono / WhatsApp',
+      optional: '(facoltativo)',
+      emailHelp: 'Ti scriviamo qui per confermarti il posto e il punto esatto del ritrovo',
+      phoneHelp: 'Lo usiamo solo per avvisarti in caso di imprevisti',
+      nameInvalid: 'Scrivi il tuo nome.',
+      emailInvalid: 'Controlla l\'indirizzo email.',
+      privacy: 'Usiamo nome, email e telefono solo per gestire la tua prenotazione.',
       submit: 'Prenota ora',
       sending: 'Invio in corso...',
-      error: 'Ops, qualcosa è andato storto. Riprova.'
+      error: 'Ops, qualcosa è andato storto. Riprova.',
+      payNote: 'Nessun pagamento online: prenoti ora e paghi di persona al ritrovo, in contanti, Revolut o PayPal.'
     },
     modal: {
-      title: '🍻 Grazie per il tuo interesse!',
-      body: 'Bolo Crawl sta per nascere! Stiamo organizzando tutto per partire al più presto. Grazie per averci mostrato interesse.',
+      title: '🍻 Prenotazione ricevuta!',
+      body: 'Ti ricontattiamo a breve via email o WhatsApp per confermarti il posto e darti il punto esatto del ritrovo. Ci vediamo in Via del Pratello alle 21:00 — paghi lì: contanti, Revolut o PayPal.',
       close: 'Chiudi'
+    },
+    whatsapp: {
+      ask: 'Hai domande prima di prenotare?',
+      cta: 'Scrivici su WhatsApp',
+      fab: 'Scrivici su WhatsApp',
+      message: 'Ciao! Vorrei informazioni sul Pub Crawl Bologna'
     },
     footer: {
       rights: 'Tutti i diritti riservati.',
@@ -86,7 +104,7 @@ const translations = {
     title: 'Pub Crawl Bologna | Bar Tour with Welcome Shots, Drinking Games & Club — €25',
     description: 'The best Pub Crawl in Bologna: every Thursday, Friday and Saturday bar-hopping on Via del Pratello with welcome shot, beer pong, drink discounts and free club entry. Only €25.',
     ogTitle: 'Pub Crawl Bologna — Bar Tour & Club Entry | €25 per person',
-    ogDescription: 'Join the most fun pub crawl in Bologna. 4 bars, welcome shot, drinking games and free club entry. Book online.',
+    ogDescription: 'Join the most fun pub crawl in Bologna. 4 bars, welcome shot, drinking games and free club entry. Book now, pay on the spot.',
     keywords: 'pub crawl bologna, bologna pub crawl, bar tour bologna, bologna nightlife, things to do bologna night, bologna bars, via del pratello, beer pong bologna, bologna party, bologna clubs',
     nav: {
       howItWorks: 'How it works',
@@ -99,7 +117,8 @@ const translations = {
       h1: 'Pub Crawl Bologna',
       subtitle: 'The most fun bar tour in town. 4 venues, welcome shot, drinking games, drink discounts and free club entry included.',
       cta: 'Book for €25',
-      meta: 'Meet at 9:00 PM — Via del Pratello, Bologna'
+      meta: 'Meet at 9:00 PM — Via del Pratello, Bologna',
+      payNote: 'Book now, pay later: cash, Revolut or PayPal right at the meeting point'
     },
     howItWorks: {
       title: 'How the Pub Crawl works',
@@ -127,10 +146,11 @@ const translations = {
       items: [
         { q: 'How much does it cost?', a: 'Only €25 per person, all included: welcome shot, 4 pubs, games, drink discounts and club entry.' },
         { q: 'When does it take place?', a: 'Every Thursday, Friday and Saturday. Meet at 9:00 PM on Via del Pratello. The night ends at the club around 2 AM.' },
-        { q: 'Where do we meet?', a: 'Via del Pratello, Bologna. The exact spot will be sent by email after booking.' },
+        { q: 'Where do we meet?', a: 'Via del Pratello, Bologna. We send you the exact spot by email or WhatsApp after you book.' },
         { q: 'Do I need to be 18+?', a: 'Yes, you must be at least 18 years old. Please bring a valid ID.' },
         { q: 'Can I come alone?', a: 'Absolutely! Most people come alone. It\'s the perfect way to meet new friends.' },
-        { q: 'How do I book?', a: 'Pick the date and number of people in the form below — just one click. No personal details required, no upfront payment.' }
+        { q: 'How do I book?', a: 'Pick the date and number of people in the form below — just one click. No online payment — you book now and pay later, right at the meeting point.' },
+        { q: 'How do I pay?', a: 'You pay in person only, at the meeting point before we set off: cash, Revolut or PayPal. No online payment and no card details on the website.' }
       ]
     },
     book: {
@@ -140,14 +160,30 @@ const translations = {
       dateHelp: 'Available only on Thursdays, Fridays and Saturdays',
       dateInvalid: 'You can only choose a Thursday, Friday or Saturday.',
       people: 'Number of people',
+      name: 'Full name',
+      email: 'Email',
+      phone: 'Phone / WhatsApp',
+      optional: '(optional)',
+      emailHelp: 'We write here to confirm your spot and the exact meeting point',
+      phoneHelp: 'Only used to reach you if something changes',
+      nameInvalid: 'Please enter your name.',
+      emailInvalid: 'Please check your email address.',
+      privacy: 'We use your name, email and phone only to manage your booking.',
       submit: 'Book now',
       sending: 'Sending...',
-      error: 'Oops, something went wrong. Please try again.'
+      error: 'Oops, something went wrong. Please try again.',
+      payNote: 'No online payment: you book now and pay in person at the meeting point, by cash, Revolut or PayPal.'
     },
     modal: {
-      title: '🍻 Thanks for your interest!',
-      body: 'Bolo Crawl is launching soon! We\'re organizing everything to start as soon as possible. Thanks for showing interest.',
+      title: '🍻 Booking received!',
+      body: 'We will get back to you shortly by email or WhatsApp to confirm your spot and give you the exact meeting point. See you on Via del Pratello at 9:00 PM — you pay there: cash, Revolut or PayPal.',
       close: 'Close'
+    },
+    whatsapp: {
+      ask: 'Any questions before booking?',
+      cta: 'Message us on WhatsApp',
+      fab: 'Message us on WhatsApp',
+      message: 'Hi! I would like some info about the Pub Crawl Bologna'
     },
     footer: {
       rights: 'All rights reserved.',
@@ -163,7 +199,7 @@ const translations = {
     title: 'Pub Crawl Bolonia | Tour de Bares con Chupitos, Juegos y Discoteca — 25€',
     description: 'El mejor Pub Crawl de Bolonia: cada jueves, viernes y sábado tour de bares en Via del Pratello con chupito de bienvenida, beer pong, descuentos y entrada gratis a la discoteca. Solo 25€.',
     ogTitle: 'Pub Crawl Bolonia — Tour de Bares y Discoteca | 25€ por persona',
-    ogDescription: 'Únete al pub crawl más divertido de Bolonia. 4 bares, chupito de bienvenida, juegos y entrada a discoteca incluida. Reserva online.',
+    ogDescription: 'Únete al pub crawl más divertido de Bolonia. 4 bares, chupito de bienvenida, juegos y entrada a discoteca incluida. Reserva ahora, paga en el sitio.',
     keywords: 'pub crawl bolonia, tour de bares bolonia, bolonia noche, que hacer bolonia noche, bares bolonia, via del pratello, beer pong bolonia, discoteca bolonia, fiesta bolonia',
     nav: {
       howItWorks: 'Cómo funciona',
@@ -176,7 +212,8 @@ const translations = {
       h1: 'Pub Crawl Bolonia',
       subtitle: 'El tour de bares más divertido de la ciudad. 4 locales, chupito de bienvenida, juegos, descuentos y entrada a discoteca incluida.',
       cta: 'Reserva por 25€',
-      meta: 'Encuentro a las 21:00 — Via del Pratello, Bolonia'
+      meta: 'Encuentro a las 21:00 — Via del Pratello, Bolonia',
+      payNote: 'Reserva ahora, paga después: efectivo, Revolut o PayPal en el punto de encuentro'
     },
     howItWorks: {
       title: 'Cómo funciona el Pub Crawl',
@@ -204,10 +241,11 @@ const translations = {
       items: [
         { q: '¿Cuánto cuesta?', a: 'Solo 25€ por persona, todo incluido: chupito, 4 pubs, juegos, descuentos y entrada a discoteca.' },
         { q: '¿Cuándo es?', a: 'Cada jueves, viernes y sábado. Encuentro a las 21:00 en Via del Pratello. Termina en discoteca hacia las 2 AM.' },
-        { q: '¿Dónde nos vemos?', a: 'Via del Pratello, Bolonia. El punto exacto se envía por email tras reservar.' },
+        { q: '¿Dónde nos vemos?', a: 'Via del Pratello, Bolonia. Te enviamos el punto exacto por email o WhatsApp tras reservar.' },
         { q: '¿Debo ser mayor de edad?', a: 'Sí, debes tener al menos 18 años. Trae un documento válido.' },
         { q: '¿Puedo ir solo?', a: '¡Por supuesto! La mayoría viene sola. Es la manera perfecta de hacer amigos.' },
-        { q: '¿Cómo reservo?', a: 'Elige la fecha y el número de personas en el formulario de abajo, un solo click. Sin datos personales, sin pago anticipado.' }
+        { q: '¿Cómo reservo?', a: 'Elige la fecha y el número de personas en el formulario de abajo, un solo click. Sin pago online: reservas ahora y pagas después, en el punto de encuentro.' },
+        { q: '¿Cómo se paga?', a: 'Se paga solo en persona, en el punto de encuentro antes de salir: efectivo, Revolut o PayPal. Sin pago online y sin datos de tarjeta en la web.' }
       ]
     },
     book: {
@@ -217,14 +255,30 @@ const translations = {
       dateHelp: 'Disponible solo jueves, viernes y sábado',
       dateInvalid: 'Solo puedes elegir jueves, viernes o sábado.',
       people: 'Número de personas',
+      name: 'Nombre y apellidos',
+      email: 'Email',
+      phone: 'Teléfono / WhatsApp',
+      optional: '(opcional)',
+      emailHelp: 'Aquí te escribimos para confirmar la plaza y el punto exacto de encuentro',
+      phoneHelp: 'Solo lo usamos para avisarte si hay algún cambio',
+      nameInvalid: 'Escribe tu nombre.',
+      emailInvalid: 'Revisa tu dirección de email.',
+      privacy: 'Usamos nombre, email y teléfono solo para gestionar tu reserva.',
       submit: 'Reservar ahora',
       sending: 'Enviando...',
-      error: 'Ups, algo ha ido mal. Inténtalo de nuevo.'
+      error: 'Ups, algo ha ido mal. Inténtalo de nuevo.',
+      payNote: 'Sin pago online: reservas ahora y pagas en persona en el punto de encuentro, en efectivo, Revolut o PayPal.'
     },
     modal: {
-      title: '🍻 ¡Gracias por tu interés!',
-      body: '¡Bolo Crawl está a punto de lanzarse! Estamos organizando todo para empezar lo antes posible. Gracias por mostrar interés.',
+      title: '🍻 ¡Reserva recibida!',
+      body: 'Te contactamos en breve por email o WhatsApp para confirmarte la plaza y darte el punto exacto de encuentro. Nos vemos en Via del Pratello a las 21:00 — pagas allí: efectivo, Revolut o PayPal.',
       close: 'Cerrar'
+    },
+    whatsapp: {
+      ask: '¿Tienes dudas antes de reservar?',
+      cta: 'Escríbenos por WhatsApp',
+      fab: 'Escríbenos por WhatsApp',
+      message: '¡Hola! Quería información sobre el Pub Crawl Bolonia'
     },
     footer: {
       rights: 'Todos los derechos reservados.',
@@ -238,7 +292,7 @@ const translations = {
     title: 'Pub Crawl Bologna | Bar-Tour mit Shots, Trinkspielen & Club — 25€',
     description: 'Der beste Pub Crawl in Bologna: jeden Donnerstag, Freitag und Samstag Bar-Tour in Via del Pratello mit Welcome-Shot, Beer Pong, Drink-Rabatten und freiem Club-Eintritt. Nur 25€.',
     ogTitle: 'Pub Crawl Bologna — Bar-Tour & Club | 25€ pro Person',
-    ogDescription: 'Mach mit beim coolsten Pub Crawl in Bologna. 4 Bars, Welcome-Shot, Trinkspiele und Club-Eintritt inklusive. Online buchen.',
+    ogDescription: 'Mach mit beim coolsten Pub Crawl in Bologna. 4 Bars, Welcome-Shot, Trinkspiele und Club-Eintritt inklusive. Jetzt buchen, vor Ort bezahlen.',
     keywords: 'pub crawl bologna, bologna nachtleben, bar tour bologna, bologna party, bologna bars, via del pratello, beer pong bologna, bologna club, bologna ausgehen',
     nav: {
       howItWorks: 'So funktioniert\'s',
@@ -251,7 +305,8 @@ const translations = {
       h1: 'Pub Crawl Bologna',
       subtitle: 'Die lustigste Bar-Tour der Stadt. 4 Locations, Welcome-Shot, Trinkspiele, Drink-Rabatte und Club-Eintritt inklusive.',
       cta: 'Für 25€ buchen',
-      meta: 'Treffpunkt 21:00 — Via del Pratello, Bologna'
+      meta: 'Treffpunkt 21:00 — Via del Pratello, Bologna',
+      payNote: 'Jetzt buchen, später zahlen: bar, Revolut oder PayPal direkt am Treffpunkt'
     },
     howItWorks: {
       title: 'So läuft der Pub Crawl ab',
@@ -279,10 +334,11 @@ const translations = {
       items: [
         { q: 'Wie viel kostet es?', a: 'Nur 25€ pro Person, alles inklusive: Welcome-Shot, 4 Pubs, Spiele, Rabatte und Club-Eintritt.' },
         { q: 'Wann findet es statt?', a: 'Jeden Donnerstag, Freitag und Samstag. Treffpunkt 21:00 in der Via del Pratello. Ende im Club gegen 2 Uhr morgens.' },
-        { q: 'Wo treffen wir uns?', a: 'Via del Pratello, Bologna. Der genaue Punkt kommt nach der Buchung per E-Mail.' },
+        { q: 'Wo treffen wir uns?', a: 'Via del Pratello, Bologna. Den genauen Punkt schicken wir nach der Buchung per E-Mail oder WhatsApp.' },
         { q: 'Muss ich 18+ sein?', a: 'Ja, Mindestalter 18. Bitte einen Ausweis mitbringen.' },
         { q: 'Kann ich alleine kommen?', a: 'Klar! Die meisten kommen alleine. Perfekt um neue Leute kennenzulernen.' },
-        { q: 'Wie buche ich?', a: 'Datum und Personenzahl im Formular unten auswählen — ein Klick genügt. Keine persönlichen Daten, keine Vorauszahlung.' }
+        { q: 'Wie buche ich?', a: 'Datum und Personenzahl im Formular unten auswählen — ein Klick genügt. Keine Online-Zahlung: du buchst jetzt und zahlst später direkt am Treffpunkt.' },
+        { q: 'Wie bezahle ich?', a: 'Bezahlt wird ausschließlich vor Ort, am Treffpunkt vor dem Start: bar, per Revolut oder PayPal. Keine Online-Zahlung und keine Kartendaten auf der Website.' }
       ]
     },
     book: {
@@ -292,14 +348,30 @@ const translations = {
       dateHelp: 'Nur Donnerstag, Freitag und Samstag verfügbar',
       dateInvalid: 'Du kannst nur Donnerstag, Freitag oder Samstag auswählen.',
       people: 'Anzahl Personen',
+      name: 'Vor- und Nachname',
+      email: 'E-Mail',
+      phone: 'Telefon / WhatsApp',
+      optional: '(optional)',
+      emailHelp: 'Hier schreiben wir dir zur Bestätigung und zum genauen Treffpunkt',
+      phoneHelp: 'Nur um dich zu erreichen, falls sich etwas ändert',
+      nameInvalid: 'Bitte gib deinen Namen ein.',
+      emailInvalid: 'Bitte prüfe deine E-Mail-Adresse.',
+      privacy: 'Wir nutzen Name, E-Mail und Telefon nur für deine Buchung.',
       submit: 'Jetzt buchen',
       sending: 'Wird gesendet...',
-      error: 'Ups, etwas ist schiefgelaufen. Bitte nochmal versuchen.'
+      error: 'Ups, etwas ist schiefgelaufen. Bitte nochmal versuchen.',
+      payNote: 'Keine Online-Zahlung: du buchst jetzt und zahlst persönlich am Treffpunkt, bar, per Revolut oder PayPal.'
     },
     modal: {
-      title: '🍻 Danke für dein Interesse!',
-      body: 'Bolo Crawl startet bald! Wir organisieren gerade alles, um so schnell wie möglich loszulegen. Danke für dein Interesse.',
+      title: '🍻 Buchung eingegangen!',
+      body: 'Wir melden uns in Kürze per E-Mail oder WhatsApp, um deinen Platz zu bestätigen und dir den genauen Treffpunkt zu nennen. Wir sehen uns um 21:00 Uhr in der Via del Pratello — bezahlt wird dort: bar, Revolut oder PayPal.',
       close: 'Schließen'
+    },
+    whatsapp: {
+      ask: 'Noch Fragen vor der Buchung?',
+      cta: 'Schreib uns auf WhatsApp',
+      fab: 'Schreib uns auf WhatsApp',
+      message: 'Hallo! Ich hätte gerne Infos zum Pub Crawl Bologna'
     },
     footer: {
       rights: 'Alle Rechte vorbehalten.',
@@ -313,7 +385,7 @@ const translations = {
     title: 'Pub Crawl Bologne | Tournée des Bars avec Shots, Jeux & Boîte — 25€',
     description: 'Le meilleur Pub Crawl de Bologne : chaque jeudi, vendredi et samedi tournée des bars sur Via del Pratello avec shot de bienvenue, beer pong, réductions et entrée en boîte. Seulement 25€.',
     ogTitle: 'Pub Crawl Bologne — Tournée des Bars et Boîte | 25€ par personne',
-    ogDescription: 'Rejoins le pub crawl le plus fun de Bologne. 4 bars, shot de bienvenue, jeux et entrée en boîte incluse. Réserve en ligne.',
+    ogDescription: 'Rejoins le pub crawl le plus fun de Bologne. 4 bars, shot de bienvenue, jeux et entrée en boîte incluse. Réserve maintenant, paie sur place.',
     keywords: 'pub crawl bologne, tournée des bars bologne, bologne nuit, que faire bologne soir, bars bologne, via del pratello, beer pong bologne, boîte de nuit bologne, sortir bologne',
     nav: {
       howItWorks: 'Comment ça marche',
@@ -326,7 +398,8 @@ const translations = {
       h1: 'Pub Crawl Bologne',
       subtitle: 'La tournée des bars la plus fun de la ville. 4 lieux, shot de bienvenue, jeux, réductions et entrée en boîte incluse.',
       cta: 'Réserver pour 25€',
-      meta: 'Rendez-vous 21h00 — Via del Pratello, Bologne'
+      meta: 'Rendez-vous 21h00 — Via del Pratello, Bologne',
+      payNote: 'Réserve maintenant, paie plus tard : espèces, Revolut ou PayPal au rendez-vous'
     },
     howItWorks: {
       title: 'Comment se déroule le Pub Crawl',
@@ -354,10 +427,11 @@ const translations = {
       items: [
         { q: 'Combien ça coûte ?', a: 'Seulement 25€ par personne, tout inclus : shot, 4 pubs, jeux, réductions et entrée en boîte.' },
         { q: 'Quand a-t-il lieu ?', a: 'Chaque jeudi, vendredi et samedi. Rendez-vous à 21h00 sur Via del Pratello. Fin en boîte vers 2h du matin.' },
-        { q: 'Où se retrouve-t-on ?', a: 'Via del Pratello, Bologne. Le point exact est envoyé par email après la réservation.' },
+        { q: 'Où se retrouve-t-on ?', a: 'Via del Pratello, Bologne. On envoie le point exact par email ou WhatsApp après la réservation.' },
         { q: 'Faut-il être majeur ?', a: 'Oui, 18 ans minimum. Merci d\'apporter une pièce d\'identité.' },
         { q: 'Puis-je venir seul ?', a: 'Bien sûr ! La plupart viennent seuls. C\'est parfait pour rencontrer du monde.' },
-        { q: 'Comment réserver ?', a: 'Choisis la date et le nombre de personnes dans le formulaire, un seul clic. Aucune donnée perso, aucun paiement à l\'avance.' }
+        { q: 'Comment réserver ?', a: 'Choisis la date et le nombre de personnes dans le formulaire, un seul clic. Aucun paiement en ligne : tu réserves maintenant et tu paies plus tard, sur place.' },
+        { q: 'Comment payer ?', a: 'Le paiement se fait uniquement sur place, au rendez-vous avant le départ : espèces, Revolut ou PayPal. Aucun paiement en ligne et aucune carte à saisir sur le site.' }
       ]
     },
     book: {
@@ -367,14 +441,30 @@ const translations = {
       dateHelp: 'Disponible uniquement jeudi, vendredi et samedi',
       dateInvalid: 'Tu peux choisir seulement jeudi, vendredi ou samedi.',
       people: 'Nombre de personnes',
+      name: 'Nom et prénom',
+      email: 'Email',
+      phone: 'Téléphone / WhatsApp',
+      optional: '(facultatif)',
+      emailHelp: "On t'écrit ici pour confirmer ta place et le point de rendez-vous exact",
+      phoneHelp: 'Utilisé uniquement pour te prévenir en cas de changement',
+      nameInvalid: 'Indique ton nom.',
+      emailInvalid: 'Vérifie ton adresse email.',
+      privacy: 'Nous utilisons nom, email et téléphone uniquement pour gérer ta réservation.',
       submit: 'Réserver',
       sending: 'Envoi...',
-      error: 'Oups, une erreur est survenue. Réessaie.'
+      error: 'Oups, une erreur est survenue. Réessaie.',
+      payNote: 'Aucun paiement en ligne : tu réserves maintenant et tu paies sur place au rendez-vous, en espèces, Revolut ou PayPal.'
     },
     modal: {
-      title: '🍻 Merci de ton intérêt !',
-      body: 'Bolo Crawl va bientôt voir le jour ! On organise tout pour démarrer au plus vite. Merci d\'avoir montré ton intérêt.',
+      title: '🍻 Réservation reçue !',
+      body: 'On te recontacte très vite par email ou WhatsApp pour confirmer ta place et te donner le point de rendez-vous exact. Rendez-vous Via del Pratello à 21h00 — tu paies sur place : espèces, Revolut ou PayPal.',
       close: 'Fermer'
+    },
+    whatsapp: {
+      ask: 'Des questions avant de réserver ?',
+      cta: 'Écris-nous sur WhatsApp',
+      fab: 'Écris-nous sur WhatsApp',
+      message: 'Salut ! Je voudrais des infos sur le Pub Crawl Bologne'
     },
     footer: {
       rights: 'Tous droits réservés.',

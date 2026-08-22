@@ -26,7 +26,7 @@ const articles = {
         },
         {
           h2: 'Perché partecipare a un Pub Crawl invece di girare da solo',
-          p: 'Scegliere il pub giusto a Bologna può essere complicato: i locali cambiano pubblico a seconda della sera, alcuni hanno prezzi turistici, altri sono affollati al punto da non riuscire a entrare. Un pub crawl organizzato risolve il problema: visiti 4 locali selezionati per essere i più vivaci di quella sera, paghi 25€ che includono shot di benvenuto in ogni locale, beer pong, sconti esclusivi sui drink e ingresso saltafila in discoteca. E in più conosci subito un gruppo di persone da tutto il mondo.'
+          p: 'Scegliere il pub giusto a Bologna può essere complicato: i locali cambiano pubblico a seconda della sera, alcuni hanno prezzi turistici, altri sono affollati al punto da non riuscire a entrare. Un pub crawl organizzato risolve il problema: visiti 4 locali selezionati per essere i più vivaci di quella sera, paghi 25€ sul posto (contanti, Revolut o PayPal) che includono shot di benvenuto in ogni locale, beer pong, sconti esclusivi sui drink e ingresso saltafila in discoteca. E in più conosci subito un gruppo di persone da tutto il mondo.'
         }
       ],
       cta: 'Prenota il Pub Crawl Bologna a 25€'
@@ -86,7 +86,7 @@ const articles = {
         },
         {
           h2: 'Quanto costa e cosa è incluso',
-          p: 'Il prezzo è 25€ a persona — tutto incluso: shot di benvenuto in ogni locale (4 in totale), ingresso in 4 pub selezionati, giochi alcolici, sconti esclusivi sui drink, ingresso saltafila in discoteca a fine serata. Nessun dato personale richiesto, nessun pagamento anticipato: scegli data e numero di persone sul sito e sei a posto.'
+          p: 'Il prezzo è 25€ a persona — tutto incluso: shot di benvenuto in ogni locale (4 in totale), ingresso in 4 pub selezionati, giochi alcolici, sconti esclusivi sui drink, ingresso saltafila in discoteca a fine serata. Nessun pagamento online: prenoti ora e paghi dopo, direttamente al ritrovo, in contanti, Revolut o PayPal. Ti basta scegliere data e numero di persone sul sito.'
         },
         {
           h2: 'Cosa aspettarsi dalla serata',
