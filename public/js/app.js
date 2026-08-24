@@ -9,6 +9,19 @@
     const nameInput = form.querySelector('input[name="name"]');
     const emailInput = form.querySelector('input[name="email"]');
 
+    // Anti-bot: marca temporale del caricamento pagina. Il server rifiuta i
+    // form inviati troppo in fretta. Il campo viene creato se manca, così una
+    // copia in cache dell'HTML precedente non blocca prenotazioni vere.
+    let tsInput = form.querySelector('input[name="ts"]');
+    if (!tsInput) {
+        tsInput = document.createElement('input');
+        tsInput.type = 'hidden';
+        tsInput.name = 'ts';
+        form.appendChild(tsInput);
+    }
+    function stampTs() { tsInput.value = String(Date.now()); }
+    stampTs();
+
     const ALLOWED_DAYS = new Set([4, 5, 6]); // Thu, Fri, Sat
     const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
     // Le prenotazioni aprono a settembre 2026: nessuna data prima di questa.
@@ -79,22 +92,55 @@
         if (!dateInput.value) dateInput.value = toYmd(nextAllowed(new Date()));
     }
 
-    function openModal() {
+    // Focus trap: all'apertura il focus entra nella finestra, Tab non ne esce,
+    // alla chiusura torna all'elemento che l'aveva aperta.
+    const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    let lastFocused = null;
+
+    function modalFocusables() {
+        if (!modal) return [];
+        return Array.prototype.slice.call(modal.querySelectorAll(FOCUSABLE));
+    }
+    // returnFocusTo: elemento a cui restituire il focus alla chiusura. Va
+    // passato esplicitamente quando chi apre il modal è stato disabilitato nel
+    // frattempo (il bottone di invio lo è per tutta la durata della richiesta).
+    function openModal(returnFocusTo) {
         if (!modal) return;
+        lastFocused = returnFocusTo || document.activeElement;
         modal.hidden = false;
         document.body.style.overflow = 'hidden';
+        const first = modalFocusables()[0];
+        if (first) first.focus();
     }
     function closeModal() {
         if (!modal) return;
         modal.hidden = true;
         document.body.style.overflow = '';
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+        lastFocused = null;
     }
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target.hasAttribute('data-close')) closeModal();
         });
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.hidden) closeModal();
+            if (modal.hidden) return;
+            if (e.key === 'Escape') { closeModal(); return; }
+            if (e.key !== 'Tab') return;
+            const items = modalFocusables();
+            if (!items.length) return;
+            const first = items[0];
+            const last = items[items.length - 1];
+            if (!modal.contains(document.activeElement)) {
+                e.preventDefault();
+                first.focus();
+            } else if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         });
     }
 
@@ -136,8 +182,9 @@
                 body: JSON.stringify(data)
             });
             if (!res.ok) throw new Error('bad_status');
-            openModal();
+            openModal(btn);
             form.reset();
+            stampTs();
             const next = nextAllowed(new Date());
             if (picker) picker.setDate(next);
             else if (dateInput) dateInput.value = toYmd(next);

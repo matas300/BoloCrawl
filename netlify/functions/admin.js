@@ -1,17 +1,6 @@
 const { db } = require('./_firebase');
 const { renderAdmin } = require('../../lib/adminHtml');
-
-function checkAuth(event) {
-  const user = process.env.ADMIN_USER || 'admin';
-  const pass = process.env.ADMIN_PASS || 'pratello2026';
-  const h = event.headers.authorization || event.headers.Authorization || '';
-  const [scheme, b64] = h.split(' ');
-  if (scheme === 'Basic' && b64) {
-    const [u, p] = Buffer.from(b64, 'base64').toString().split(':');
-    if (u === user && p === pass) return true;
-  }
-  return false;
-}
+const { checkBasicAuth, unauthorizedResponse } = require('../../lib/adminAuth');
 
 // Il form di cancellazione arriva come application/x-www-form-urlencoded.
 function parseForm(event) {
@@ -22,13 +11,8 @@ function parseForm(event) {
 }
 
 exports.handler = async (event) => {
-  if (!checkAuth(event)) {
-    return {
-      statusCode: 401,
-      headers: { 'WWW-Authenticate': 'Basic realm="Pub Crawl Admin"' },
-      body: 'Authentication required.'
-    };
-  }
+  const auth = event.headers.authorization || event.headers.Authorization;
+  if (!checkBasicAuth(auth)) return unauthorizedResponse();
 
   try {
     if (event.httpMethod === 'POST') {

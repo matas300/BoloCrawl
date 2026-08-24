@@ -4,20 +4,19 @@
 // cookie di profilazione e nessuno strumento di analisi.
 // Renderizzata da renderPrivacy() in render.js su /<lang>/privacy/.
 
-const CONTACT_EMAIL = 'matas300@gmail.com';
 const CONTACT_PHONE = '+39 345 643 3446';
 
 module.exports = {
   it: {
     title: 'Privacy Policy — Bolo Crawl | Pub Crawl Bologna',
-    description: 'Come Bolo Crawl tratta i dati di chi prenota il Pub Crawl Bologna: quali dati raccogliamo, perché, dove sono conservati e come chiederne la cancellazione.',
+    description: 'Come Bolo Crawl tratta i dati di chi prenota il Pub Crawl Bologna: quali raccogliamo, dove sono conservati e come cancellarli.',
     h1: 'Privacy Policy',
-    updated: 'Ultimo aggiornamento: 22 agosto 2026',
-    intro: `Questa pagina spiega come trattiamo i dati di chi prenota il Pub Crawl Bologna. È scritta in modo semplice, senza formule inutili: se qualcosa non ti è chiaro, scrivici a ${CONTACT_EMAIL}.`,
+    updated: 'Ultimo aggiornamento: 24 agosto 2026',
+    intro: `Questa pagina spiega come trattiamo i dati di chi prenota il Pub Crawl Bologna. È scritta in modo semplice, senza formule inutili: se qualcosa non ti è chiaro, scrivici su WhatsApp al ${CONTACT_PHONE}.`,
     sections: [
       {
         h2: 'Chi tratta i tuoi dati',
-        p: `I dati raccolti da questo sito sono trattati da Bolo Crawl, che organizza il Pub Crawl Bologna. Per qualsiasi questione relativa ai tuoi dati puoi scrivere a ${CONTACT_EMAIL} o contattarci su WhatsApp al ${CONTACT_PHONE}.`
+        p: `I dati raccolti da questo sito sono trattati da Bolo Crawl, che organizza il Pub Crawl Bologna. Per qualsiasi questione relativa ai tuoi dati puoi contattarci su WhatsApp al ${CONTACT_PHONE}.`
       },
       {
         h2: 'Quali dati raccogliamo',
@@ -37,7 +36,7 @@ module.exports = {
       },
       {
         h2: 'I tuoi diritti',
-        p: `Puoi chiedere di accedere ai tuoi dati, correggerli, cancellarli, limitarne l'uso od opporti al trattamento: scrivi a ${CONTACT_EMAIL} e ti rispondiamo entro 30 giorni. Se ritieni che i tuoi dati non siano trattati correttamente, puoi rivolgerti al Garante per la protezione dei dati personali.`
+        p: `Puoi chiedere di accedere ai tuoi dati, correggerli, cancellarli, limitarne l'uso od opporti al trattamento: scrivici su WhatsApp al ${CONTACT_PHONE} e ti rispondiamo entro 30 giorni. Se ritieni che i tuoi dati non siano trattati correttamente, puoi rivolgerti al Garante per la protezione dei dati personali.`
       },
       {
         h2: 'Cookie e strumenti di analisi',
@@ -50,12 +49,12 @@ module.exports = {
     title: 'Privacy Policy — Bolo Crawl | Pub Crawl Bologna',
     description: 'How Bolo Crawl handles the data of people booking the Pub Crawl Bologna: what we collect, why, where it is stored and how to ask for its deletion.',
     h1: 'Privacy Policy',
-    updated: 'Last updated: 22 August 2026',
-    intro: `This page explains how we handle the data of people who book the Pub Crawl Bologna. It is written in plain language: if anything is unclear, write to us at ${CONTACT_EMAIL}.`,
+    updated: 'Last updated: 24 August 2026',
+    intro: `This page explains how we handle the data of people who book the Pub Crawl Bologna. It is written in plain language: if anything is unclear, message us on WhatsApp at ${CONTACT_PHONE}.`,
     sections: [
       {
         h2: 'Who handles your data',
-        p: `The data collected through this website is handled by Bolo Crawl, which runs the Pub Crawl Bologna. For anything concerning your data you can write to ${CONTACT_EMAIL} or message us on WhatsApp at ${CONTACT_PHONE}.`
+        p: `The data collected through this website is handled by Bolo Crawl, which runs the Pub Crawl Bologna. For anything concerning your data you can message us on WhatsApp at ${CONTACT_PHONE}.`
       },
       {
         h2: 'What we collect',
@@ -75,7 +74,7 @@ module.exports = {
       },
       {
         h2: 'Your rights',
-        p: `You can ask to access, correct or delete your data, restrict its use or object to the processing: write to ${CONTACT_EMAIL} and we will reply within 30 days. If you believe your data is not handled properly, you can lodge a complaint with your national data protection authority.`
+        p: `You can ask to access, correct or delete your data, restrict its use or object to the processing: message us on WhatsApp at ${CONTACT_PHONE} and we will reply within 30 days. If you believe your data is not handled properly, you can lodge a complaint with your national data protection authority.`
       },
       {
         h2: 'Cookies and analytics',
@@ -88,12 +87,12 @@ module.exports = {
     title: 'Política de Privacidad — Bolo Crawl | Pub Crawl Bolonia',
     description: 'Cómo trata Bolo Crawl los datos de quien reserva el Pub Crawl Bolonia: qué datos recogemos, por qué, dónde se guardan y cómo pedir su eliminación.',
     h1: 'Política de Privacidad',
-    updated: 'Última actualización: 22 de agosto de 2026',
-    intro: `Esta página explica cómo tratamos los datos de quien reserva el Pub Crawl Bolonia. Está escrita en lenguaje sencillo: si algo no te queda claro, escríbenos a ${CONTACT_EMAIL}.`,
+    updated: 'Última actualización: 24 de agosto de 2026',
+    intro: `Esta página explica cómo tratamos los datos de quien reserva el Pub Crawl Bolonia. Está escrita en lenguaje sencillo: si algo no te queda claro, escríbenos por WhatsApp al ${CONTACT_PHONE}.`,
     sections: [
       {
         h2: 'Quién trata tus datos',
-        p: `Los datos recogidos en esta web son tratados por Bolo Crawl, que organiza el Pub Crawl Bolonia. Para cualquier cuestión relativa a tus datos puedes escribir a ${CONTACT_EMAIL} o contactarnos por WhatsApp en el ${CONTACT_PHONE}.`
+        p: `Los datos recogidos en esta web son tratados por Bolo Crawl, que organiza el Pub Crawl Bolonia. Para cualquier cuestión relativa a tus datos puedes contactarnos por WhatsApp en el ${CONTACT_PHONE}.`
       },
       {
         h2: 'Qué datos recogemos',
@@ -113,7 +112,7 @@ module.exports = {
       },
       {
         h2: 'Tus derechos',
-        p: `Puedes pedir acceder a tus datos, corregirlos, eliminarlos, limitar su uso u oponerte al tratamiento: escribe a ${CONTACT_EMAIL} y te respondemos en un plazo de 30 días. Si crees que tus datos no se tratan correctamente, puedes acudir a la autoridad de protección de datos de tu país.`
+        p: `Puedes pedir acceder a tus datos, corregirlos, eliminarlos, limitar su uso u oponerte al tratamiento: escríbenos por WhatsApp al ${CONTACT_PHONE} y te respondemos en un plazo de 30 días. Si crees que tus datos no se tratan correctamente, puedes acudir a la autoridad de protección de datos de tu país.`
       },
       {
         h2: 'Cookies y analítica',
@@ -124,14 +123,14 @@ module.exports = {
 
   de: {
     title: 'Datenschutzerklärung — Bolo Crawl | Pub Crawl Bologna',
-    description: 'Wie Bolo Crawl mit den Daten der Teilnehmer des Pub Crawl Bologna umgeht: welche Daten wir erheben, wozu, wo sie gespeichert werden und wie du ihre Löschung verlangst.',
+    description: 'Wie Bolo Crawl die Daten der Pub-Crawl-Bologna-Buchungen behandelt: welche wir erheben, wo sie liegen und wie du sie löschen lässt.',
     h1: 'Datenschutzerklärung',
-    updated: 'Letzte Aktualisierung: 22. August 2026',
-    intro: `Diese Seite erklärt, wie wir mit den Daten derjenigen umgehen, die den Pub Crawl Bologna buchen. Sie ist bewusst einfach geschrieben: wenn etwas unklar ist, schreib uns an ${CONTACT_EMAIL}.`,
+    updated: 'Letzte Aktualisierung: 24. August 2026',
+    intro: `Diese Seite erklärt, wie wir mit den Daten derjenigen umgehen, die den Pub Crawl Bologna buchen. Sie ist bewusst einfach geschrieben: wenn etwas unklar ist, schreib uns per WhatsApp unter ${CONTACT_PHONE}.`,
     sections: [
       {
         h2: 'Wer deine Daten verarbeitet',
-        p: `Die über diese Website erhobenen Daten werden von Bolo Crawl verarbeitet, dem Veranstalter des Pub Crawl Bologna. Bei allen Fragen zu deinen Daten kannst du an ${CONTACT_EMAIL} schreiben oder uns über WhatsApp unter ${CONTACT_PHONE} kontaktieren.`
+        p: `Die über diese Website erhobenen Daten werden von Bolo Crawl verarbeitet, dem Veranstalter des Pub Crawl Bologna. Bei allen Fragen zu deinen Daten kannst du uns über WhatsApp unter ${CONTACT_PHONE} kontaktieren.`
       },
       {
         h2: 'Welche Daten wir erheben',
@@ -151,7 +150,7 @@ module.exports = {
       },
       {
         h2: 'Deine Rechte',
-        p: `Du kannst Auskunft über deine Daten verlangen, sie berichtigen oder löschen lassen, ihre Nutzung einschränken oder der Verarbeitung widersprechen: schreib an ${CONTACT_EMAIL}, wir antworten innerhalb von 30 Tagen. Wenn du der Meinung bist, dass deine Daten nicht korrekt verarbeitet werden, kannst du dich an die zuständige Datenschutzbehörde wenden.`
+        p: `Du kannst Auskunft über deine Daten verlangen, sie berichtigen oder löschen lassen, ihre Nutzung einschränken oder der Verarbeitung widersprechen: schreib uns per WhatsApp unter ${CONTACT_PHONE}, wir antworten innerhalb von 30 Tagen. Wenn du der Meinung bist, dass deine Daten nicht korrekt verarbeitet werden, kannst du dich an die zuständige Datenschutzbehörde wenden.`
       },
       {
         h2: 'Cookies und Analyse',
@@ -161,15 +160,15 @@ module.exports = {
   },
 
   fr: {
-    title: 'Politique de Confidentialité — Bolo Crawl | Pub Crawl Bologne',
-    description: 'Comment Bolo Crawl traite les données des personnes qui réservent le Pub Crawl Bologne : quelles données, pourquoi, où elles sont conservées et comment en demander la suppression.',
+    title: 'Confidentialité — Bolo Crawl | Pub Crawl Bologne',
+    description: 'Comment Bolo Crawl traite les données de réservation du Pub Crawl Bologne : quelles données, où elles sont conservées et comment les supprimer.',
     h1: 'Politique de Confidentialité',
-    updated: 'Dernière mise à jour : 22 août 2026',
-    intro: `Cette page explique comment nous traitons les données des personnes qui réservent le Pub Crawl Bologne. Elle est écrite simplement : si quelque chose n'est pas clair, écris-nous à ${CONTACT_EMAIL}.`,
+    updated: 'Dernière mise à jour : 24 août 2026',
+    intro: `Cette page explique comment nous traitons les données des personnes qui réservent le Pub Crawl Bologne. Elle est écrite simplement : si quelque chose n'est pas clair, écris-nous sur WhatsApp au ${CONTACT_PHONE}.`,
     sections: [
       {
         h2: 'Qui traite tes données',
-        p: `Les données collectées sur ce site sont traitées par Bolo Crawl, qui organise le Pub Crawl Bologne. Pour toute question concernant tes données, tu peux écrire à ${CONTACT_EMAIL} ou nous contacter sur WhatsApp au ${CONTACT_PHONE}.`
+        p: `Les données collectées sur ce site sont traitées par Bolo Crawl, qui organise le Pub Crawl Bologne. Pour toute question concernant tes données, tu peux nous contacter sur WhatsApp au ${CONTACT_PHONE}.`
       },
       {
         h2: 'Quelles données nous collectons',
@@ -189,7 +188,7 @@ module.exports = {
       },
       {
         h2: 'Tes droits',
-        p: `Tu peux demander à accéder à tes données, à les corriger, à les supprimer, à en limiter l'usage ou t'opposer au traitement : écris à ${CONTACT_EMAIL}, nous répondons sous 30 jours. Si tu estimes que tes données ne sont pas traitées correctement, tu peux saisir l'autorité de protection des données de ton pays.`
+        p: `Tu peux demander à accéder à tes données, à les corriger, à les supprimer, à en limiter l'usage ou t'opposer au traitement : écris-nous sur WhatsApp au ${CONTACT_PHONE}, nous répondons sous 30 jours. Si tu estimes que tes données ne sont pas traitées correctement, tu peux saisir l'autorité de protection des données de ton pays.`
       },
       {
         h2: 'Cookies et mesure d\'audience',

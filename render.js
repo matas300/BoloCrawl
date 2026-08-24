@@ -5,6 +5,14 @@ const { SUPPORTED_LANGS } = require('./translations');
 const whySection = require('./content/whySection');
 const articlesByLang = require('./content/articles');
 const privacyByLang = require('./content/privacy');
+const {
+  EVENT_START_TIME,
+  EVENT_END_TIME,
+  bookingsOpen,
+  firstEventDate,
+  nextDay,
+  romeOffset
+} = require('./lib/bookingWindow');
 
 const BASE_URL = process.env.BASE_URL || 'https://pubcrawlbologna.it';
 
@@ -35,11 +43,32 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
-function hreflangTags() {
-  const tags = SUPPORTED_LANGS.map(
-    lang => `<link rel="alternate" hreflang="${lang}" href="${BASE_URL}/${lang}/" />`
-  ).join('\n    ');
-  return `${tags}\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}/en/" />`;
+// Genera i tag hreflang a partire da una funzione lang -> path.
+// La funzione può restituire null: la lingua viene semplicemente omessa
+// (utile se un articolo non esiste in tutte le lingue).
+function hreflangTags(pathForLang) {
+  const tags = SUPPORTED_LANGS
+    .map(lang => ({ lang, path: pathForLang(lang) }))
+    .filter(entry => entry.path)
+    .map(entry => `<link rel="alternate" hreflang="${entry.lang}" href="${BASE_URL}${entry.path}" />`)
+    .join('\n    ');
+  const defaultPath = pathForLang('en') || '/en/';
+  return `${tags}\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${defaultPath}" />`;
+}
+
+function homeHreflang() {
+  return hreflangTags(lang => `/${lang}/`);
+}
+
+function privacyHreflang() {
+  return hreflangTags(lang => `/${lang}/privacy/`);
+}
+
+function articleHreflang(key) {
+  return hreflangTags(lang => {
+    const slug = articleSlugFor(lang, key);
+    return slug ? `/${lang}/${slug}/` : null;
+  });
 }
 
 function localBusinessLd() {
@@ -47,10 +76,10 @@ function localBusinessLd() {
     '@context': 'https://schema.org',
     '@type': 'TouristAttraction',
     name: 'Bolo Crawl',
-    alternateName: 'Pub Crawl Bologna',
+    alternateName: ['Pub Crawl Bologna', 'Bologna Pub Crawl', 'Bologna Bar Crawl'],
     description: 'Tour guidato dei pub di Bologna con shot di benvenuto, giochi alcolici, sconti e ingresso in discoteca.',
     url: BASE_URL,
-    image: `${BASE_URL}/og-image.svg`,
+    image: `${BASE_URL}/og-image.png`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Piazza 8 Agosto',
@@ -67,16 +96,39 @@ function localBusinessLd() {
   };
 }
 
+// Il pub crawl è un evento ricorrente, non una data singola: startDate fissato
+// al giorno del build invecchiava da solo e cadeva su giorni in cui il crawl
+// non si fa. eventSchedule descrive la ricorrenza, così il markup resta
+// corretto anche senza rebuild per mesi.
 function eventLd(t) {
+  const start = firstEventDate();
+  const end = nextDay(start);
+  // La serata attraversa la mezzanotte: un solo offset per inizio e fine.
+  const offset = romeOffset(start);
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
-    name: 'Bolo Crawl — Pub Crawl Bologna',
+    name: 'Bolo Crawl — Bologna Pub Crawl',
     description: t.description,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    startDate: new Date().toISOString().split('T')[0] + 'T21:00:00+02:00',
-    image: `${BASE_URL}/og-image.svg`,
+    startDate: `${start}T${EVENT_START_TIME}${offset}`,
+    endDate: `${end}T${EVENT_END_TIME}${offset}`,
+    eventSchedule: {
+      '@type': 'Schedule',
+      repeatFrequency: 'P1W',
+      byDay: [
+        'https://schema.org/Thursday',
+        'https://schema.org/Friday',
+        'https://schema.org/Saturday'
+      ],
+      startDate: start,
+      startTime: EVENT_START_TIME,
+      endTime: EVENT_END_TIME,
+      duration: 'PT5H',
+      scheduleTimezone: 'Europe/Rome'
+    },
+    image: `${BASE_URL}/og-image.png`,
     location: {
       '@type': 'Place',
       name: 'Piazza 8 Agosto',
@@ -135,7 +187,7 @@ function articleLd(t, article) {
     author: { '@type': 'Organization', name: 'Bolo Crawl' },
     publisher: { '@type': 'Organization', name: 'Bolo Crawl' },
     mainEntityOfPage: `${BASE_URL}/${t.lang}/${article.slug}/`,
-    image: `${BASE_URL}/og-image.svg`
+    image: `${BASE_URL}/og-image.png`
   };
 }
 
@@ -145,60 +197,71 @@ function jsonLdScripts(objs) {
     .join('\n    ');
 }
 
-function langSwitcher(currentLang, slug) {
+// pageRef: null (home) | 'privacy' | { articleKey }
+// Gli slug degli articoli sono localizzati, quindi il cambio lingua passa
+// dalla chiave logica dell'articolo, non dallo slug.
+function langSwitcher(currentLang, pageRef) {
   const names = { it: 'IT', en: 'EN', es: 'ES', de: 'DE', fr: 'FR' };
   return SUPPORTED_LANGS.map(lang => {
     const active = lang === currentLang ? ' active' : '';
-    // Article pages exist only in some langs → link to home for others
-    const href = slug && articleExists(lang, slug) ? `/${lang}/${slug}/` : `/${lang}/`;
+    let href = `/${lang}/`;
+    if (pageRef === 'privacy') {
+      href = `/${lang}/privacy/`;
+    } else if (pageRef && pageRef.articleKey) {
+      // se l'articolo non esiste in quella lingua si ripiega sulla home
+      const slug = articleSlugFor(lang, pageRef.articleKey);
+      if (slug) href = `/${lang}/${slug}/`;
+    }
     return `<a href="${href}" class="lang-link${active}" hreflang="${lang}">${names[lang]}</a>`;
   }).join('');
 }
 
-function articleExists(lang, slug) {
+function articleSlugFor(lang, key) {
   const arr = articlesByLang[lang] || [];
-  return arr.some(a => a.slug === slug);
+  const found = arr.find(a => a.key === key);
+  return found ? found.slug : null;
 }
 
-function renderHead({ t, title, description, keywords, canonical, ogTitle, ogDescription, ldObjects, slug }) {
+function renderHead({ t, title, description, keywords, canonical, ogTitle, ogDescription, ldObjects, slug, hreflang, pikaday, noindex }) {
   return `
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
     <meta name="keywords" content="${escapeHtml(keywords)}" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}" />
     <meta name="author" content="Bolo Crawl" />
-    <link rel="canonical" href="${canonical}" />
-    ${slug ? '' : hreflangTags()}
+    <meta name="theme-color" content="#0d0b14" />
+    ${canonical ? `<link rel="canonical" href="${canonical}" />` : ''}
+    ${hreflang || ''}
 
     <meta property="og:type" content="${slug ? 'article' : 'website'}" />
     <meta property="og:site_name" content="Bolo Crawl" />
     <meta property="og:title" content="${escapeHtml(ogTitle)}" />
     <meta property="og:description" content="${escapeHtml(ogDescription)}" />
-    <meta property="og:url" content="${canonical}" />
+    <meta property="og:url" content="${canonical || BASE_URL}" />
     <meta property="og:locale" content="${t.locale}" />
-    <meta property="og:image" content="${BASE_URL}/og-image.svg" />
+    <meta property="og:image" content="${BASE_URL}/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(ogTitle)}" />
     <meta name="twitter:description" content="${escapeHtml(ogDescription)}" />
-    <meta name="twitter:image" content="${BASE_URL}/og-image.svg" />
+    <meta name="twitter:image" content="${BASE_URL}/og-image.png" />
 
     <meta name="geo.region" content="IT-BO" />
     <meta name="geo.placename" content="Bologna" />
     <meta name="geo.position" content="44.4949;11.3293" />
     <meta name="ICBM" content="44.4949, 11.3293" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday@1.8.2/css/pikaday.min.css" />
+    ${pikaday ? '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday@1.8.2/css/pikaday.min.css" />' : ''}
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     ${jsonLdScripts(ldObjects)}`;
 }
 
-function renderHeader(t, articleSlug) {
+function renderHeader(t, pageRef) {
   return `<header class="site-header">
         <div class="container header-inner">
             <a href="/${t.lang}/" class="logo" aria-label="Bolo Crawl">
@@ -223,7 +286,7 @@ function renderHeader(t, articleSlug) {
                 <a href="/${t.lang}/#faq">${escapeHtml(t.nav.faq)}</a>
                 <a href="/${t.lang}/#book" class="nav-cta">${escapeHtml(t.nav.book)}</a>
             </nav>
-            <div class="lang-switcher">${langSwitcher(t.lang, articleSlug)}</div>
+            <div class="lang-switcher">${langSwitcher(t.lang, pageRef)}</div>
         </div>
     </header>`;
 }
@@ -267,7 +330,9 @@ function renderPage(t) {
     canonical,
     ogTitle: t.ogTitle,
     ogDescription: t.ogDescription,
-    ldObjects
+    ldObjects,
+    hreflang: homeHreflang(),
+    pikaday: true
   })}
 </head>
 <body>
@@ -276,7 +341,7 @@ function renderPage(t) {
     <main>
         <section class="hero">
             <div class="container">
-                <span class="badge">${escapeHtml(t.hero.badge)}</span>
+                <span class="badge">${escapeHtml(bookingsOpen() ? t.hero.badge : t.hero.badgeSoon)}</span>
                 <h1>${escapeHtml(t.hero.h1)}</h1>
                 <p class="hero-sub">${escapeHtml(t.hero.subtitle)}</p>
                 <a href="#book" class="btn btn-primary btn-lg">${escapeHtml(t.hero.cta)}</a>
@@ -308,7 +373,7 @@ function renderPage(t) {
                 </ul>
                 <div class="price-tag">
                     <span class="price">€25</span>
-                    <span class="price-label">all inclusive</span>
+                    <span class="price-label">${escapeHtml(t.includes.priceLabel)}</span>
                 </div>
                 <a href="#book" class="btn btn-primary btn-lg">${escapeHtml(t.hero.cta)}</a>
                 <p class="pay-note">💸 ${escapeHtml(t.hero.payNote)}</p>
@@ -348,10 +413,18 @@ function renderPage(t) {
                 <p class="section-sub">${escapeHtml(t.book.subtitle)}</p>
                 <form id="book-form" class="book-form" novalidate>
                     <input type="hidden" name="lang" value="${t.lang}" />
+                    <!-- Anti-bot: campo esca invisibile + istante di caricamento della pagina.
+                         Nessun dato aggiuntivo sull'utente, l'informativa privacy resta valida. -->
+                    <div class="hp-field" aria-hidden="true">
+                        <label>Website
+                            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+                        </label>
+                    </div>
+                    <input type="hidden" name="ts" value="" />
                     <div class="form-row two-cols">
                         <label>${escapeHtml(t.book.date)} *
                             <input type="date" name="date" required data-invalid-msg="${escapeHtml(t.book.dateInvalid)}" data-early-msg="${escapeHtml(t.book.dateTooEarly)}" />
-                            <small class="form-help">${escapeHtml(t.book.dateHelp)}</small>
+                            <small class="form-help">${escapeHtml(bookingsOpen() ? t.book.dateHelp : t.book.dateHelpSoon)}</small>
                         </label>
                         <label>${escapeHtml(t.book.people)} *
                             <input type="number" name="people" required min="1" max="50" value="1" />
@@ -371,6 +444,11 @@ function renderPage(t) {
                             <input type="tel" name="phone" autocomplete="tel" maxlength="30" />
                             <small class="form-help">${escapeHtml(t.book.phoneHelp)}</small>
                         </label>
+                    </div>
+                    <div class="booking-disclaimer" role="note">
+                        <p class="booking-disclaimer-title">⚠️ ${escapeHtml(t.book.disclaimer.title)}</p>
+                        <p class="booking-disclaimer-intro">${escapeHtml(t.book.disclaimer.intro)}</p>
+                        <ul>${t.book.disclaimer.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg" data-label="${escapeHtml(t.book.submit)}" data-sending="${escapeHtml(t.book.sending)}">${escapeHtml(t.book.submit)}</button>
                     <p class="pay-note">💸 ${escapeHtml(t.book.payNote)}</p>
@@ -426,11 +504,12 @@ function renderArticle(t, article) {
     ogTitle: article.title,
     ogDescription: article.description,
     ldObjects,
-    slug: article.slug
+    slug: article.slug,
+    hreflang: articleHreflang(article.key)
   })}
 </head>
 <body>
-    ${renderHeader(t, article.slug)}
+    ${renderHeader(t, { articleKey: article.key })}
 
     <main>
         <article class="article">
@@ -482,7 +561,8 @@ function renderPrivacy(t) {
     ogTitle: page.title,
     ogDescription: page.description,
     ldObjects,
-    slug: 'privacy'
+    slug: 'privacy',
+    hreflang: privacyHreflang()
   })}
 </head>
 <body>
@@ -516,4 +596,48 @@ function renderPrivacy(t) {
 </html>`;
 }
 
-module.exports = { renderPage, renderArticle, renderPrivacy, BASE_URL, articlesByLang };
+// Pagina 404. Netlify serve /404.html in automatico per gli URL inesistenti;
+// il server Express la rende nella lingua rilevata dall'header Accept-Language.
+// noindex: una pagina di errore non va in indice.
+function render404(t) {
+  const names = { it: 'Italiano', en: 'English', es: 'Español', de: 'Deutsch', fr: 'Français' };
+  const nf = t.notFound;
+
+  return `<!DOCTYPE html>
+<html lang="${t.lang}">
+<head>${renderHead({
+    t,
+    title: nf.title,
+    description: nf.body,
+    keywords: '',
+    canonical: null,
+    ogTitle: nf.title,
+    ogDescription: nf.body,
+    ldObjects: [],
+    noindex: true
+  })}
+</head>
+<body>
+    ${renderHeader(t)}
+
+    <main>
+        <section class="section error-page">
+            <div class="container container-narrow">
+                <p class="error-code">404</p>
+                <h1>${escapeHtml(nf.h1)}</h1>
+                <p class="section-sub">${escapeHtml(nf.body)}</p>
+                <a href="/${t.lang}/" class="btn btn-primary btn-lg">${escapeHtml(nf.cta)}</a>
+                <nav class="error-langs">
+                    <span class="error-langs-label">${escapeHtml(nf.langs)}</span>
+                    ${SUPPORTED_LANGS.map(l => `<a href="/${l}/" hreflang="${l}">${names[l]}</a>`).join('')}
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    ${renderFooter(t)}
+</body>
+</html>`;
+}
+
+module.exports = { renderPage, renderArticle, renderPrivacy, render404, BASE_URL, articlesByLang, articleSlugFor };

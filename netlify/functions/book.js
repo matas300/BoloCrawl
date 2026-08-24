@@ -1,10 +1,11 @@
 const { db } = require('./_firebase');
 const { sendBookingEmails } = require('./_email');
+const { BOOKING_OPENS } = require('../../lib/bookingWindow');
 
 const SUPPORTED = ['it', 'en', 'es', 'de', 'fr'];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
-// Le prenotazioni aprono a settembre 2026 (allineato a public/js/app.js).
-const BOOKING_OPENS = '2026-09-01';
+// Tempo minimo di compilazione del form: sotto questa soglia è un bot.
+const MIN_FILL_MS = 3000;
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -19,6 +20,20 @@ exports.handler = async (event) => {
     const name = String(b.name || '').trim().slice(0, 80);
     const email = String(b.email || '').trim().slice(0, 120);
     const phone = String(b.phone || '').trim().slice(0, 30);
+
+    // Anti-abuso: campo esca invisibile + tempo minimo di compilazione.
+    // Un ts assente o incoerente (clock del client sfasato, pagina in cache
+    // dopo un deploy) non blocca: l'esca resta la difesa principale.
+    if (String(b.website || '').trim()) {
+      console.warn('booking rejected: honeypot');
+      return { statusCode: 400, body: JSON.stringify({ error: 'spam' }) };
+    }
+    const ts = Number(b.ts);
+    const elapsed = Date.now() - ts;
+    if (Number.isFinite(ts) && ts > 0 && elapsed >= 0 && elapsed < MIN_FILL_MS) {
+      console.warn('booking rejected: form compilato in', elapsed, 'ms');
+      return { statusCode: 400, body: JSON.stringify({ error: 'spam' }) };
+    }
 
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
       return { statusCode: 400, body: JSON.stringify({ error: 'date' }) };

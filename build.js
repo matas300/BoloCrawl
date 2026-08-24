@@ -4,7 +4,8 @@
 const fs = require('fs');
 const path = require('path');
 const { translations, SUPPORTED_LANGS, DEFAULT_LANG } = require('./translations');
-const { renderPage, renderArticle, renderPrivacy, BASE_URL, articlesByLang } = require('./render');
+const { renderPage, renderArticle, renderPrivacy, render404, BASE_URL, articlesByLang } = require('./render');
+const { buildSitemap } = require('./lib/sitemap');
 
 const DIST = path.join(__dirname, 'dist');
 
@@ -57,41 +58,12 @@ Disallow: /api/
 Sitemap: ${BASE_URL}/sitemap.xml
 `);
 
-const homeUrls = SUPPORTED_LANGS.map(lang => {
-  const alternates = SUPPORTED_LANGS.map(
-    l => `      <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}/${l}/" />`
-  ).join('\n');
-  return `  <url>
-    <loc>${BASE_URL}/${lang}/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>${lang === DEFAULT_LANG ? '1.0' : '0.9'}</priority>
-${alternates}
-      <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/en/" />
-  </url>`;
-}).join('\n');
+// Pagina 404: Netlify la serve in automatico per gli URL inesistenti.
+// È una sola per tutto il sito, quindi la generiamo nella lingua di default
+// ma con i link a tutte e cinque.
+fs.writeFileSync(path.join(DIST, '404.html'), render404(translations[DEFAULT_LANG]));
+console.log('  → dist/404.html');
 
-const articleUrls = SUPPORTED_LANGS.flatMap(lang =>
-  (articlesByLang[lang] || []).map(a => `  <url>
-    <loc>${BASE_URL}/${lang}/${a.slug}/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>`)
-).join('\n');
-
-const privacyUrls = SUPPORTED_LANGS.map(lang => `  <url>
-    <loc>${BASE_URL}/${lang}/privacy/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>`).join('\n');
-
-fs.writeFileSync(path.join(DIST, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${homeUrls}
-${articleUrls}
-${privacyUrls}
-</urlset>
-`);
+fs.writeFileSync(path.join(DIST, 'sitemap.xml'), buildSitemap());
 
 console.log(`\n✅ Build completata in dist/ (BASE_URL=${BASE_URL})`);

@@ -6,8 +6,8 @@ const translations = {
   it: {
     lang: 'it',
     locale: 'it_IT',
-    title: 'Pub Crawl Bologna | Tour dei Pub con Shot, Giochi Alcolici e Discoteca — 25€',
-    description: 'Il miglior Pub Crawl di Bologna: ogni giovedì, venerdì e sabato giro dei pub nel centro storico con shot di benvenuto, beer pong, sconti sui drink e ingresso in discoteca. Solo 25€.',
+    title: 'Pub Crawl Bologna — Tour dei Pub e Discoteca a 25€',
+    description: 'Pub crawl a Bologna ogni giovedì, venerdì e sabato: 4 pub, shot di benvenuto, giochi alcolici e discoteca inclusa. 25€, paghi sul posto.',
     ogTitle: 'Pub Crawl Bologna — Tour dei Pub e Discoteca | 25€ a persona',
     ogDescription: 'Unisciti al pub crawl più divertente di Bologna. 4 pub, shot di benvenuto, giochi alcolici e discoteca inclusa. Prenota ora, paghi sul posto.',
     keywords: 'pub crawl bologna, pub crawl bologna prezzi, tour dei pub bologna, bologna nightlife, serate bologna, locali bologna, centro storico bologna, beer pong bologna, discoteca bologna, eventi bologna',
@@ -18,7 +18,8 @@ const translations = {
       book: 'Prenota'
     },
     hero: {
-      badge: 'Da settembre · Gio · Ven · Sab',
+      badge: 'Gio · Ven · Sab',
+      badgeSoon: 'Da settembre · Gio · Ven · Sab',
       h1: 'Pub Crawl Bologna',
       subtitle: 'Il tour dei pub più divertente della città. 4 locali, shot di benvenuto, giochi alcolici, sconti sui drink e ingresso in discoteca incluso.',
       cta: 'Prenota ora',
@@ -37,6 +38,7 @@ const translations = {
     },
     includes: {
       title: 'Cosa è incluso nei 25€',
+      priceLabel: 'tutto incluso',
       items: [
         'Shot di benvenuto gratuito',
         'Tour guidato in 4 pub selezionati',
@@ -59,10 +61,20 @@ const translations = {
       ]
     },
     book: {
+      disclaimer: {
+        title: 'Disclaimer',
+        intro: 'Prenotando l\'esperienza dichiari di:',
+        items: [
+          'Partecipare volontariamente, assumendoti la piena responsabilità di te stesso e dei tuoi effetti personali.',
+          'Comprendere che gli organizzatori non sono responsabili di incidenti, danni, decisioni di terzi o cambiamenti imprevisti.',
+          'Accettare che le esperienze possano essere modificate o adattate per ragioni di sicurezza o organizzative.'
+        ]
+      },
       title: 'Prenota il tuo Pub Crawl',
       subtitle: 'Scegli la data e il numero di persone, ci pensiamo noi.',
       date: 'Data del pub crawl',
-      dateHelp: 'Prenotazioni da settembre — solo giovedì, venerdì e sabato',
+      dateHelp: 'Solo giovedì, venerdì e sabato',
+      dateHelpSoon: 'Prenotazioni da settembre — solo giovedì, venerdì e sabato',
       dateInvalid: 'Puoi scegliere solo giovedì, venerdì o sabato.',
       dateTooEarly: 'Le prenotazioni partono da settembre: scegli una data da settembre in poi.',
       people: 'Numero di persone',
@@ -91,6 +103,13 @@ const translations = {
       fab: 'Scrivici su WhatsApp',
       message: 'Ciao! Vorrei informazioni sul Pub Crawl Bologna'
     },
+    notFound: {
+      title: 'Pagina non trovata — Bolo Crawl',
+      h1: 'Pagina non trovata',
+      body: 'La pagina che cercavi non esiste o è stata spostata. Dalla home prenoti il pub crawl in un click.',
+      cta: 'Torna alla home',
+      langs: 'Oppure scegli la lingua:'
+    },
     footer: {
       rights: 'Tutti i diritti riservati.',
       tagline: 'Bolo Crawl — la notte è giovane.',
@@ -103,11 +122,11 @@ const translations = {
   en: {
     lang: 'en',
     locale: 'en_US',
-    title: 'Pub Crawl Bologna | Bar Tour with Welcome Shots, Drinking Games & Club — €25',
-    description: 'The best Pub Crawl in Bologna: every Thursday, Friday and Saturday bar-hopping in the historic centre with welcome shot, beer pong, drink discounts and free club entry. Only €25.',
-    ogTitle: 'Pub Crawl Bologna — Bar Tour & Club Entry | €25 per person',
-    ogDescription: 'Join the most fun pub crawl in Bologna. 4 bars, welcome shot, drinking games and free club entry. Book now, pay on the spot.',
-    keywords: 'pub crawl bologna, bologna pub crawl, bar tour bologna, bologna nightlife, things to do bologna night, bologna bars, bologna city centre, beer pong bologna, bologna party, bologna clubs',
+    title: 'Bologna Pub Crawl — Bar Tour & Free Club Entry, €25',
+    description: 'Bologna Pub Crawl every Thursday, Friday and Saturday: 4 bars, welcome shot, drinking games and free club entry. €25, pay on the spot.',
+    ogTitle: 'Bologna Pub Crawl — Bar Tour & Club Entry | €25 per person',
+    ogDescription: 'Join the most fun Bologna Pub Crawl. 4 bars, welcome shot, drinking games and free club entry. Book now, pay on the spot.',
+    keywords: 'bologna pub crawl, pub crawl bologna, bologna bar crawl, bar tour bologna, bologna nightlife, things to do bologna night, bologna bars, bologna city centre, beer pong bologna, bologna party, bologna clubs',
     nav: {
       howItWorks: 'How it works',
       includes: 'What\'s included',
@@ -115,15 +134,16 @@ const translations = {
       book: 'Book now'
     },
     hero: {
-      badge: 'From September · Thu · Fri · Sat',
-      h1: 'Pub Crawl Bologna',
-      subtitle: 'The most fun bar tour in town. 4 venues, welcome shot, drinking games, drink discounts and free club entry included.',
+      badge: 'Thu · Fri · Sat',
+      badgeSoon: 'From September · Thu · Fri · Sat',
+      h1: 'Bologna Pub Crawl',
+      subtitle: 'The Bologna Pub Crawl everyone talks about. 4 venues, welcome shot, drinking games, drink discounts and free club entry included.',
       cta: 'Book now',
       meta: 'Meet at 9:00 PM — Piazza 8 Agosto, Bologna',
       payNote: 'Book now, pay later: cash, Revolut or PayPal right at the meeting point'
     },
     howItWorks: {
-      title: 'How the Pub Crawl works',
+      title: 'How the Bologna Pub Crawl works',
       subtitle: 'One night, 4 bars, lots of people from all over the world.',
       steps: [
         { n: '1', t: 'Meet-up & Welcome Shot', d: 'We meet at 9:00 PM in Piazza 8 Agosto. Free welcome shot to break the ice.' },
@@ -134,6 +154,7 @@ const translations = {
     },
     includes: {
       title: 'What\'s included for €25',
+      priceLabel: 'all inclusive',
       items: [
         'Free welcome shot',
         'Guided tour through 4 selected pubs',
@@ -147,7 +168,7 @@ const translations = {
       title: 'Frequently asked questions',
       items: [
         { q: 'How much does it cost?', a: 'Only €25 per person, all included: welcome shot, 4 pubs, games, drink discounts and club entry.' },
-        { q: 'When does it take place?', a: 'Every Thursday, Friday and Saturday. Meet at 9:00 PM in Piazza 8 Agosto. The night ends at the club around 2 AM.' },
+        { q: 'When does it take place?', a: 'The Bologna Pub Crawl runs every Thursday, Friday and Saturday. Meet at 9:00 PM in Piazza 8 Agosto. The night ends at the club around 2 AM.' },
         { q: 'Where do we meet?', a: 'Piazza 8 Agosto, Bologna. We send you the exact spot by email or WhatsApp after you book.' },
         { q: 'Do I need to be 18+?', a: 'Yes, you must be at least 18 years old. Please bring a valid ID.' },
         { q: 'Can I come alone?', a: 'Absolutely! Most people come alone. It\'s the perfect way to meet new friends.' },
@@ -156,10 +177,20 @@ const translations = {
       ]
     },
     book: {
-      title: 'Book your Pub Crawl',
+      disclaimer: {
+        title: 'Disclaimer',
+        intro: 'By booking an experience, you declare that you:',
+        items: [
+          'Participate voluntarily, taking full responsibility for yourself and your personal belongings.',
+          'Understand that the organizers are not responsible for accidents, damages, third party decisions or unexpected changes.',
+          'Accept that experiences may be modified or adapted for safety or organizational reasons.'
+        ]
+      },
+      title: 'Book your Bologna Pub Crawl',
       subtitle: 'Pick a date and the number of people, we\'ll take care of the rest.',
       date: 'Pub crawl date',
-      dateHelp: 'Bookings from September — Thursdays, Fridays and Saturdays only',
+      dateHelp: 'Thursdays, Fridays and Saturdays only',
+      dateHelpSoon: 'Bookings from September — Thursdays, Fridays and Saturdays only',
       dateInvalid: 'You can only choose a Thursday, Friday or Saturday.',
       dateTooEarly: 'Bookings start in September: please pick a date from September onwards.',
       people: 'Number of people',
@@ -186,7 +217,14 @@ const translations = {
       ask: 'Any questions before booking?',
       cta: 'Message us on WhatsApp',
       fab: 'Message us on WhatsApp',
-      message: 'Hi! I would like some info about the Pub Crawl Bologna'
+      message: 'Hi! I would like some info about the Bologna Pub Crawl'
+    },
+    notFound: {
+      title: 'Page not found — Bolo Crawl',
+      h1: 'Page not found',
+      body: 'The page you were looking for does not exist or has moved. From the home page you can book the pub crawl in one click.',
+      cta: 'Back to home',
+      langs: 'Or pick a language:'
     },
     footer: {
       rights: 'All rights reserved.',
@@ -200,8 +238,8 @@ const translations = {
   es: {
     lang: 'es',
     locale: 'es_ES',
-    title: 'Pub Crawl Bolonia | Tour de Bares con Chupitos, Juegos y Discoteca — 25€',
-    description: 'El mejor Pub Crawl de Bolonia: cada jueves, viernes y sábado tour de bares por el centro histórico con chupito de bienvenida, beer pong, descuentos y entrada gratis a la discoteca. Solo 25€.',
+    title: 'Pub Crawl Bolonia — Tour de Bares y Discoteca por 25€',
+    description: 'Pub crawl en Bolonia cada jueves, viernes y sábado: 4 bares, chupito de bienvenida, juegos y discoteca incluida. 25€, pagas allí.',
     ogTitle: 'Pub Crawl Bolonia — Tour de Bares y Discoteca | 25€ por persona',
     ogDescription: 'Únete al pub crawl más divertido de Bolonia. 4 bares, chupito de bienvenida, juegos y entrada a discoteca incluida. Reserva ahora, paga en el sitio.',
     keywords: 'pub crawl bolonia, tour de bares bolonia, bolonia noche, que hacer bolonia noche, bares bolonia, centro histórico bolonia, beer pong bolonia, discoteca bolonia, fiesta bolonia',
@@ -212,7 +250,8 @@ const translations = {
       book: 'Reservar'
     },
     hero: {
-      badge: 'Desde septiembre · Jue · Vie · Sáb',
+      badge: 'Jue · Vie · Sáb',
+      badgeSoon: 'Desde septiembre · Jue · Vie · Sáb',
       h1: 'Pub Crawl Bolonia',
       subtitle: 'El tour de bares más divertido de la ciudad. 4 locales, chupito de bienvenida, juegos, descuentos y entrada a discoteca incluida.',
       cta: 'Reserva ahora',
@@ -231,6 +270,7 @@ const translations = {
     },
     includes: {
       title: 'Qué incluye por 25€',
+      priceLabel: 'todo incluido',
       items: [
         'Chupito de bienvenida gratis',
         'Tour guiado por 4 pubs seleccionados',
@@ -253,10 +293,20 @@ const translations = {
       ]
     },
     book: {
+      disclaimer: {
+        title: 'Aviso legal',
+        intro: 'Al reservar la experiencia declaras que:',
+        items: [
+          'Participas voluntariamente, asumiendo toda la responsabilidad sobre ti y sobre tus objetos personales.',
+          'Entiendes que los organizadores no son responsables de accidentes, daños, decisiones de terceros o cambios imprevistos.',
+          'Aceptas que las experiencias puedan ser modificadas o adaptadas por motivos de seguridad u organizativos.'
+        ]
+      },
       title: 'Reserva tu Pub Crawl',
       subtitle: 'Elige la fecha y el número de personas, nosotros nos encargamos.',
       date: 'Fecha del pub crawl',
-      dateHelp: 'Reservas desde septiembre — solo jueves, viernes y sábado',
+      dateHelp: 'Solo jueves, viernes y sábado',
+      dateHelpSoon: 'Reservas desde septiembre — solo jueves, viernes y sábado',
       dateInvalid: 'Solo puedes elegir jueves, viernes o sábado.',
       dateTooEarly: 'Las reservas empiezan en septiembre: elige una fecha a partir de septiembre.',
       people: 'Número de personas',
@@ -285,7 +335,15 @@ const translations = {
       fab: 'Escríbenos por WhatsApp',
       message: '¡Hola! Quería información sobre el Pub Crawl Bolonia'
     },
+    notFound: {
+      title: 'Página no encontrada — Bolo Crawl',
+      h1: 'Página no encontrada',
+      body: 'La página que buscabas no existe o se ha movido. Desde la home reservas el pub crawl en un clic.',
+      cta: 'Volver al inicio',
+      langs: 'O elige el idioma:'
+    },
     footer: {
+      articles: 'Guías',
       rights: 'Todos los derechos reservados.',
       tagline: 'Bolo Crawl — la noche es joven.',
       privacy: 'Privacidad',
@@ -296,8 +354,8 @@ const translations = {
   de: {
     lang: 'de',
     locale: 'de_DE',
-    title: 'Pub Crawl Bologna | Bar-Tour mit Shots, Trinkspielen & Club — 25€',
-    description: 'Der beste Pub Crawl in Bologna: jeden Donnerstag, Freitag und Samstag Bar-Tour in der Altstadt mit Welcome-Shot, Beer Pong, Drink-Rabatten und freiem Club-Eintritt. Nur 25€.',
+    title: 'Pub Crawl Bologna — Bar-Tour & Club-Eintritt für 25€',
+    description: 'Pub Crawl in Bologna jeden Donnerstag, Freitag und Samstag: 4 Bars, Welcome-Shot, Trinkspiele und Club-Eintritt. 25€, Zahlung vor Ort.',
     ogTitle: 'Pub Crawl Bologna — Bar-Tour & Club | 25€ pro Person',
     ogDescription: 'Mach mit beim coolsten Pub Crawl in Bologna. 4 Bars, Welcome-Shot, Trinkspiele und Club-Eintritt inklusive. Jetzt buchen, vor Ort bezahlen.',
     keywords: 'pub crawl bologna, bologna nachtleben, bar tour bologna, bologna party, bologna bars, bologna altstadt, beer pong bologna, bologna club, bologna ausgehen',
@@ -308,7 +366,8 @@ const translations = {
       book: 'Buchen'
     },
     hero: {
-      badge: 'Ab September · Do · Fr · Sa',
+      badge: 'Do · Fr · Sa',
+      badgeSoon: 'Ab September · Do · Fr · Sa',
       h1: 'Pub Crawl Bologna',
       subtitle: 'Die lustigste Bar-Tour der Stadt. 4 Locations, Welcome-Shot, Trinkspiele, Drink-Rabatte und Club-Eintritt inklusive.',
       cta: 'Jetzt buchen',
@@ -327,6 +386,7 @@ const translations = {
     },
     includes: {
       title: 'Im 25€-Preis enthalten',
+      priceLabel: 'alles inklusive',
       items: [
         'Gratis Welcome-Shot',
         'Geführte Tour durch 4 ausgewählte Pubs',
@@ -349,10 +409,20 @@ const translations = {
       ]
     },
     book: {
+      disclaimer: {
+        title: 'Haftungsausschluss',
+        intro: 'Mit der Buchung des Erlebnisses erklärst du, dass du:',
+        items: [
+          'freiwillig teilnimmst und die volle Verantwortung für dich selbst und deine persönlichen Gegenstände trägst.',
+          'verstehst, dass die Veranstalter nicht für Unfälle, Schäden, Entscheidungen Dritter oder unvorhergesehene Änderungen haften.',
+          'akzeptierst, dass die Erlebnisse aus Sicherheits- oder organisatorischen Gründen geändert oder angepasst werden können.'
+        ]
+      },
       title: 'Pub Crawl buchen',
       subtitle: 'Wähle Datum und Anzahl Personen, wir kümmern uns um den Rest.',
       date: 'Datum',
-      dateHelp: 'Buchungen ab September — nur Donnerstag, Freitag und Samstag',
+      dateHelp: 'Nur Donnerstag, Freitag und Samstag',
+      dateHelpSoon: 'Buchungen ab September — nur Donnerstag, Freitag und Samstag',
       dateInvalid: 'Du kannst nur Donnerstag, Freitag oder Samstag auswählen.',
       dateTooEarly: 'Buchungen starten im September: bitte wähle ein Datum ab September.',
       people: 'Anzahl Personen',
@@ -381,7 +451,15 @@ const translations = {
       fab: 'Schreib uns auf WhatsApp',
       message: 'Hallo! Ich hätte gerne Infos zum Pub Crawl Bologna'
     },
+    notFound: {
+      title: 'Seite nicht gefunden — Bolo Crawl',
+      h1: 'Seite nicht gefunden',
+      body: 'Die gesuchte Seite gibt es nicht oder sie wurde verschoben. Auf der Startseite buchst du den Pub Crawl mit einem Klick.',
+      cta: 'Zur Startseite',
+      langs: 'Oder wähle die Sprache:'
+    },
     footer: {
+      articles: 'Ratgeber',
       rights: 'Alle Rechte vorbehalten.',
       tagline: 'Bolo Crawl — die Nacht ist jung.',
       privacy: 'Datenschutz',
@@ -392,8 +470,8 @@ const translations = {
   fr: {
     lang: 'fr',
     locale: 'fr_FR',
-    title: 'Pub Crawl Bologne | Tournée des Bars avec Shots, Jeux & Boîte — 25€',
-    description: 'Le meilleur Pub Crawl de Bologne : chaque jeudi, vendredi et samedi tournée des bars dans le centre historique avec shot de bienvenue, beer pong, réductions et entrée en boîte. Seulement 25€.',
+    title: 'Pub Crawl Bologne — Tournée des Bars et Boîte à 25€',
+    description: 'Pub crawl à Bologne chaque jeudi, vendredi et samedi : 4 bars, shot de bienvenue, jeux et entrée en boîte. 25€, paiement sur place.',
     ogTitle: 'Pub Crawl Bologne — Tournée des Bars et Boîte | 25€ par personne',
     ogDescription: 'Rejoins le pub crawl le plus fun de Bologne. 4 bars, shot de bienvenue, jeux et entrée en boîte incluse. Réserve maintenant, paie sur place.',
     keywords: 'pub crawl bologne, tournée des bars bologne, bologne nuit, que faire bologne soir, bars bologne, centre historique bologne, beer pong bologne, boîte de nuit bologne, sortir bologne',
@@ -404,7 +482,8 @@ const translations = {
       book: 'Réserver'
     },
     hero: {
-      badge: 'Dès septembre · Jeu · Ven · Sam',
+      badge: 'Jeu · Ven · Sam',
+      badgeSoon: 'Dès septembre · Jeu · Ven · Sam',
       h1: 'Pub Crawl Bologne',
       subtitle: 'La tournée des bars la plus fun de la ville. 4 lieux, shot de bienvenue, jeux, réductions et entrée en boîte incluse.',
       cta: 'Réserve maintenant',
@@ -423,6 +502,7 @@ const translations = {
     },
     includes: {
       title: 'Inclus dans les 25€',
+      priceLabel: 'tout compris',
       items: [
         'Shot de bienvenue offert',
         'Tour guidé dans 4 pubs sélectionnés',
@@ -445,10 +525,20 @@ const translations = {
       ]
     },
     book: {
+      disclaimer: {
+        title: 'Avertissement',
+        intro: 'En réservant l\'expérience, tu déclares :',
+        items: [
+          'participer volontairement, en assumant l\'entière responsabilité de toi-même et de tes effets personnels.',
+          'comprendre que les organisateurs ne sont pas responsables des accidents, dommages, décisions de tiers ou changements imprévus.',
+          'accepter que les expériences puissent être modifiées ou adaptées pour des raisons de sécurité ou d\'organisation.'
+        ]
+      },
       title: 'Réserve ton Pub Crawl',
       subtitle: 'Choisis la date et le nombre de personnes, on s\'occupe du reste.',
       date: 'Date',
-      dateHelp: 'Réservations dès septembre — uniquement jeudi, vendredi et samedi',
+      dateHelp: 'Uniquement jeudi, vendredi et samedi',
+      dateHelpSoon: 'Réservations dès septembre — uniquement jeudi, vendredi et samedi',
       dateInvalid: 'Tu peux choisir seulement jeudi, vendredi ou samedi.',
       dateTooEarly: 'Les réservations commencent en septembre : choisis une date à partir de septembre.',
       people: 'Nombre de personnes',
@@ -477,7 +567,15 @@ const translations = {
       fab: 'Écris-nous sur WhatsApp',
       message: 'Salut ! Je voudrais des infos sur le Pub Crawl Bologne'
     },
+    notFound: {
+      title: 'Page introuvable — Bolo Crawl',
+      h1: 'Page introuvable',
+      body: "La page que tu cherchais n'existe pas ou a été déplacée. Depuis la home, tu réserves le pub crawl en un clic.",
+      cta: "Retour à l'accueil",
+      langs: 'Ou choisis la langue :'
+    },
     footer: {
+      articles: 'Guides',
       rights: 'Tous droits réservés.',
       tagline: 'Bolo Crawl — la nuit est jeune.',
       privacy: 'Confidentialité',
